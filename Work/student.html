@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalvium - Students</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            background-color: #000;
+            background-image: url('backgroundimg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('backgroundimg.jpg') no-repeat center center/cover;
+            filter: blur(5px) brightness(0.4) contrast(0.7);
+            z-index: -1;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px 0;
+            box-shadow: 0 0 10px red;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 2.5em;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            color: red;
+            text-shadow: 0 0 10px red;
+            animation: glitch 0.5s infinite alternate;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px 5px red; }
+            100% { text-shadow: -2px -2px 5px red; }
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: red;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: color 0.3s, text-shadow 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: white;
+            text-shadow: 0 0 5px white;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            margin-left: 20px;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 5px white;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px white;
+        }
+
+        /* Light mode styles */
+        body.light-mode {
+            background-color: #fff;
+            color: #000;
+        }
+
+        body.light-mode::before {
+            filter: blur(5px) brightness(1.2) contrast(1.1);
+        }
+
+        body.light-mode .student-card {
+            background: rgba(255, 255, 255, 0.8);
+            border-color: #000;
+        }
+
+        body.light-mode .student-content {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        body.light-mode .student-info {
+            color: #000;
+            text-shadow: none;
+        }
+
+        body.light-mode .memories-section {
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        body.light-mode .video-container {
+            background: rgba(255, 255, 255, 0.5);
+            border-color: #000;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 15px white;
+            margin-bottom: 30px;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            text-shadow: 0 0 10px white;
+            margin-bottom: 40px;
+        }
+
+        .students-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .student-card {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            padding: 0;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid red;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+            max-width: 280px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .student-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px red;
+        }
+
+        .student-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            margin: 0;
+            border: none;
+            box-shadow: none;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .student-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .student-card:hover .student-content {
+            opacity: 1;
+        }
+
+        .student-card:hover .student-image {
+            transform: scale(1.1);
+        }
+
+        .student-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3em;
+            color: red;
+            margin-bottom: 8px;
+            text-shadow: 0 0 5px red;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .student-info {
+            color: white;
+            line-height: 1.4;
+            text-shadow: 0 0 5px white;
+            font-size: 0.9em;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .social-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .student-card:hover .student-name,
+        .student-card:hover .student-info,
+        .student-card:hover .social-links {
+            transform: translateY(0);
+        }
+
+        .btn {
+            display: none;
+        }
+
+        .memories-section {
+            padding: 50px 0;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            margin-top: 50px;
+        }
+
+        .memories-section h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5em;
+            color: red;
+            text-shadow: 0 0 10px red;
+            margin-bottom: 30px;
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            border: 2px solid red;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+        }
+
+        .video-container video {
+            width: 100%;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Kalvium</div>
+            <ul class="nav-links">
+                <li><a href="ttttt.2.000.html">Home</a></li>
+                <li><a href="#mentors">Mentors</a></li>
+                <li><a href="#students">Students</a></li>
+                <li><a href="#recognition">Recognition</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Our Students</h1>
+        <p>Meet the Future of Technology</p>
+        <div class="students-grid">
+            <div class="student-card">
+                <img src="shreya.jpg" alt="Shreya" class="student-image">
+                <div class="student-content">
+                    <h2 class="student-name">Shreya</h2>
+                    <p class="student-info">Skilled in HTML, CSS, JavaScript, Python, and React, bringing creativity and problem-solving to every project!</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/shreya-kalvium" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card">
+                <img src="shubhdeep.jpg" alt="Shubhdeep Bhole" class="student-image">
+                <div class="student-content">
+                    <h2 class="student-name">Shubhdeep Bhole</h2>
+                    <p class="student-info">Skilled in HTML, CSS, JavaScript, Python, and React, bringing creativity and problem-solving to every project!</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/shubhdeep-bhole" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card">
+                <img src="simran.jpg" alt="Simran Arora" class="student-image">
+                <div class="student-content">
+                    <h2 class="student-name">Simran Arora</h2>
+                    <p class="student-info">Skilled in HTML, CSS, JavaScript, Python, and React, bringing creativity and problem-solving to every project!</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/simran-arora" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card">
+                <img src="tannish.jpg" alt="Tannish Garg" class="student-image">
+                <div class="student-content">
+                    <h2 class="student-name">Tannish Garg</h2>
+                    <p class="student-info">Skilled in HTML, CSS, JavaScript, Python, and React, bringing creativity and problem-solving to every project!</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/tannish-garg" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card">
+                <img src="utkarsh.jpg" alt="Utkarsh Pal" class="student-image">
+                <div class="student-content">
+                    <h2 class="student-name">Utkarsh Pal</h2>
+                    <p class="student-info">Skilled in HTML, CSS, JavaScript, Python, and React, bringing creativity and problem-solving to every project!</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/utkarsh-pal" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card">
+                <img src="vikram kochar.jpg" alt="Vikram Kochar" class="student-image">
+                <div class="student-content">
+                    <h2 class="student-name">Vikram Kochar</h2>
+                    <p class="student-info">Skilled in HTML, CSS, JavaScript, Python, and React, bringing creativity and problem-solving to every project!</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/vikram-kochar" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card">
+                <img src="xiena.jpg" alt="Xiena Vij" class="student-image">
+                <div class="student-content">
+                    <h2 class="student-name">Xiena Vij</h2>
+                    <p class="student-info">Skilled in HTML, CSS, JavaScript, Python, and React, bringing creativity and problem-solving to every project!</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/xiena-vij" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card">
+                <img src="yashsavi.jpg" alt="Yashsavi" class="student-image">
+                <div class="student-content">
+                    <h2 class="student-name">Yashsavi</h2>
+                    <p class="student-info">Skilled in HTML, CSS, JavaScript, Python, and React, bringing creativity and problem-solving to every project!</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/yashsavi" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card">
+                <img src="yen.jpg" alt="Yen" class="student-image">
+                <div class="student-content">
+                    <h2 class="student-name">Yen</h2>
+                    <p class="student-info">Skilled in HTML, CSS, JavaScript, Python, and React, bringing creativity and problem-solving to every project!</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/yen" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card">
+                <img src="yugveer.jpg" alt="Yugveer" class="student-image">
+                <div class="student-content">
+                    <h2 class="student-name">Yugveer</h2>
+                    <p class="student-info">Skilled in HTML, CSS, JavaScript, Python, and React, bringing creativity and problem-solving to every project!</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/yugveer" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card">
+                <img src="anika.jpg" alt="Anika" class="student-image">
+                <div class="student-content">
+                    <h2 class="student-name">Anika</h2>
+                    <p class="student-info">Skilled in HTML, CSS, JavaScript, Python, and React, bringing creativity and problem-solving to every project!</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/anika" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card">
+                <img src="s2.jpg" alt="Nandini" class="student-image">
+                <div class="student-content">
+                    <h2 class="student-name">Nandini</h2>
+                    <p class="student-info">Skilled in HTML, CSS, JavaScript, Python, and React, bringing creativity and problem-solving to every project!</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/nandini" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card">
+                <img src="sanchi.jpg" alt="Sanchi" class="student-image">
+                <div class="student-content">
+                    <h2 class="student-name">Sanchi</h2>
+                    <p class="student-info">Skilled in HTML, CSS, JavaScript, Python, and React, bringing creativity and problem-solving to every project!</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/sanchi" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card">
+                <img src="vikram r.jpg" alt="Vikram Rehni" class="student-image">
+                <div class="student-content">
+                    <h2 class="student-name">Vikram Rehni</h2>
+                    <p class="student-info">Skilled in HTML, CSS, JavaScript, Python, and React, bringing creativity and problem-solving to every project!</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/vikram-rehni" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card">
+                <img src="moksh.jpg" alt="Moksh" class="student-image">
+                <div class="student-content">
+                    <h2 class="student-name">Moksh</h2>
+                    <p class="student-info">Skilled in HTML, CSS, JavaScript, Python, and React, bringing creativity and problem-solving to every project!</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/moksh" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card">
+                <img src="tanvi.jpg" alt="Tanvi" class="student-image">
+                <div class="student-content">
+                    <h2 class="student-name">Tanvi</h2>
+                    <p class="student-info">Skilled in HTML, CSS, JavaScript, Python, and React, bringing creativity and problem-solving to every project!</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/tanvi" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card">
+                <img src="mitali.jpg" alt="Mitali Gupta" class="student-image">
+                <div class="student-content">
+                    <h2 class="student-name">Mitali Gupta</h2>
+                    <p class="student-info">Skilled in HTML, CSS, JavaScript, Python, and React, bringing creativity and problem-solving to every project!</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/mitali-gupta" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card">
+                <img src="arsh.jpg" alt="Arsh Mittal" class="student-image">
+                <div class="student-content">
+                    <h2 class="student-name">Arsh Mittal</h2>
+                    <p class="student-info">Skilled in HTML, CSS, JavaScript, Python, and React, bringing creativity and problem-solving to every project!</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/arsh-mittal" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card">
+                <img src="chhavi.jpg" alt="Chhavi" class="student-image">
+                <div class="student-content">
+                    <h2 class="student-name">Chhavi</h2>
+                    <p class="student-info">Skilled in HTML, CSS, JavaScript, Python, and React, bringing creativity and problem-solving to every project!</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/chhavi" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card">
+                <img src="kapish.jpg" alt="Kapish" class="student-image">
+                <div class="student-content">
+                    <h2 class="student-name">Kapish</h2>
+                    <p class="student-info">Skilled in HTML, CSS, JavaScript, Python, and React, bringing creativity and problem-solving to every project!</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/kapish" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card">
+                <img src="keshav.jpg" alt="Keshav" class="student-image">
+                <div class="student-content">
+                    <h2 class="student-name">Keshav</h2>
+                    <p class="student-info">Skilled in HTML, CSS, JavaScript, Python, and React, bringing creativity and problem-solving to every project!</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/keshav" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card">
+                <img src="akhil.jpg" alt="Akhil" class="student-image">
+                <div class="student-content">
+                    <h2 class="student-name">Akhil</h2>
+                    <p class="student-info">Skilled in HTML, CSS, JavaScript, Python, and React, bringing creativity and problem-solving to every project!</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/akhil" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card">
+                <img src="mukund.jpg" alt="Mukund Bansal" class="student-image">
+                <div class="student-content">
+                    <h2 class="student-name">Mukund Bansal</h2>
+                    <p class="student-info">Skilled in HTML, CSS, JavaScript, Python, and React, bringing creativity and problem-solving to every project!</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/mukund-bansal" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card">
+                <img src="tanmay.jpg" alt="Tanmay Khosla" class="student-image">
+                <div class="student-content">
+                    <h2 class="student-name">Tanmay Khosla</h2>
+                    <p class="student-info">Skilled in HTML, CSS, JavaScript, Python, and React, bringing creativity and problem-solving to every project!</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/tanmay-khosla" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="memories-section">
+            <h2>Our Memories</h2>
+            <div class="video-container">
+                <video autoplay loop muted>
+                    <source src="memory.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle');
+            
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                themeToggle.textContent = '🌙';
+            } else {
+                body.classList.add('light-mode');
+                themeToggle.textContent = '☀️';
+            }
+        }
+    </script>
+</body>
+</html> 

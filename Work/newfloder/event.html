@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Squad Representation Events</title>
+  <style>
+    /* CSS Styles */
+    :root {
+      --dark-red: #8B0000; /* Define a consistent dark red color */
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000000; /* Black background */
+      color: #ffffff; /* White text */
+    }
+
+    .header {
+      background-color: var(--dark-red); /* Dark red header */
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .event-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 20px;
+    }
+
+    .event {
+      width: 450px; /* Increased box width */
+      height: 500px; /* Increased box height */
+      margin: 20px;
+      background-color: var(--dark-red); /* Dark red for event cards */
+      border: 2px solid #cccccc; /* Light gray border */
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+      position: relative;
+      overflow: hidden;
+      transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effect */
+    }
+
+    .event img {
+      width: calc(100% - 20px); /* Leave equal margin on all sides (10px) */
+      height: calc(100% - 20px); /* Leave equal margin on all sides (10px) */
+      object-fit: cover; /* Cover the area while maintaining aspect ratio */
+      margin: 10px; /* Equal margin on all sides */
+      border-radius: 8px; /* Rounded corners for the image */
+    }
+
+    .event-info {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%; /* Cover entire width */
+      height: 100%; /* Cover entire height */
+      background-color: rgba(255, 0, 0, 0.8); /* Semi-transparent red */
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .event:hover {
+        background-color: #7a0000; /* Darker shade of dark red on hover */
+        transform: scale(1.05); /* Slightly pop up effect */
+    }
+
+    .event:hover .event-info {
+        opacity: 1; /* Show info on hover */
+    }
+
+    h2 {
+        color: var(--dark-red); /* Consistent dark red headings for event titles */
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    ul li {
+        margin-bottom: 10px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+     }
+     
+     label {
+        margin-top :10px; 
+     }
+     
+     input { 
+        padding :10px; 
+        margin-top :5px; 
+        border-radius :4px; 
+     }
+     
+     button { 
+        margin-top :15px; 
+        background-color :var(--dark-red); /* Red button */ 
+        color:white; 
+        border-radius :4px; 
+        padding :10px; 
+        cursor:pointer; 
+     }
+     
+     button:hover { 
+        background-color:#e60000; /* Darker red on hover */ 
+        transition-duration:.3s; /* Smooth transition effect */ 
+     }
+     
+     .hidden { 
+        display:none; /* Hide element */ 
+     }
+     
+     .footer { 
+        text-align:center; 
+        margin-top :20px; 
+        background-color :var(--dark-red); /* Red footer */ 
+        color:white; 
+        padding :10px; 
+     }
+     
+     .social-link { 
+        color:white; 
+        text-decoration :underline; 
+     }
+     
+     .social-link:hover { 
+        text-decoration:none; 
+        opacity:.8; /* Slightly fade on hover */ 
+     }
+   </style>
+</head>
+<body>
+<header class="header">
+<h1>Squad Representation Events</h1>
+<p>Join us for exciting events and activities!</p>
+</header>
+
+<section class="event-container">
+<div class="event">
+<img src="hacka.jpg" alt="Hackathon Event">
+<div class="event-info">
+<h2>Hackathon</h2>
+<p>Date: September 27</p>
+<p>Location: In Time Tec, LLC, Meridian, ID</p>
+<p>Dive into the world of data science!</p>
+</div>
+</div>
+
+<div class="event">
+<img src="leet.jpg" alt="LeetCode Challenge">
+<div class="event-info">
+<h2>LeetCode Challenge</h2>
+<p>Date: October 25, 2024</p> <!-- Updated date -->
+<p>Location: Online</p>
+<p>Test your coding skills with our LeetCode challenge!</p>
+</div>
+</div>
+
+<div class="event">
+<img src="quest.jpg" alt="HackQuest">
+<div class="event-info">
+<h2>HackQuest</h2>
+<p>Date: November 12</p>
+<p>Location: Virtual</p>
+<p>Embark on an exciting cybersecurity adventure!</p>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<p>&copy; 2025 Squad Representation. All Rights Reserved.</p>
+<a href="#" class="social-link">Follow us on Instagram</a>
+</footer>
+
+<!-- JavaScript -->
+<script>
+// JavaScript Code
+document.getElementById("registrationForm").addEventListener("submit", function(event) {
+   event.preventDefault(); // Prevent form submission
+
+   // Display success message
+   const successMessage = document.getElementById("successMessage");
+   successMessage.classList.remove("hidden");
+   
+   // Optionally clear the form fields after submission
+   document.getElementById("registrationForm").reset();
+});
+</script>
+
+</body>
+</html>
