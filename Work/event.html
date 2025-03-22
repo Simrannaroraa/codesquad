@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mentors - Kalvium</title>
+    <title>Events - Kalvium</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -92,12 +92,12 @@
             text-shadow: 0 0 5px white;
         }
 
-        .mentor-section {
+        .event-section {
             text-align: center;
             padding: 50px 20px;
         }
 
-        .mentor-section h1 {
+        .event-section h1 {
             font-size: 3.5em;
             font-family: 'Orbitron', sans-serif;
             text-shadow: 0 0 15px white;
@@ -105,7 +105,7 @@
             margin-bottom: 50px;
         }
 
-        .mentor-cards {
+        .event-container {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
@@ -114,7 +114,7 @@
             margin: auto;
         }
 
-        .mentor-card {
+        .event {
             background: rgba(13, 17, 23, 0.8);
             padding: 30px;
             border-radius: 15px;
@@ -127,15 +127,15 @@
             overflow: hidden;
         }
 
-        .mentor-card:hover {
+        .event:hover {
             transform: translateY(-10px);
             box-shadow: 0 0 30px rgba(255, 0, 0, 0.7);
             border-color: rgba(255, 0, 0, 0.7);
         }
 
-        .mentor-card img {
-            width: 120px;
-            height: 120px;
+        .event img {
+            width: 100%;
+            height: 200px;
             border-radius: 15px;
             border: 2px solid rgba(255, 0, 0, 0.5);
             margin-bottom: 15px;
@@ -144,35 +144,28 @@
             object-fit: cover;
         }
 
-        .mentor-card:hover img {
+        .event:hover img {
             border-color: red;
             box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
             transform: scale(1.15);
             border-radius: 5px;
         }
 
-        .mentor-card h3 {
+        .event h2 {
             margin: 10px 0;
             font-size: 1.8em;
             color: white;
         }
 
-        .mentor-card p.role {
-            color: #ff0000;
-            font-size: 1.2em;
-            margin: 5px 0 15px 0;
-            font-weight: 500;
-        }
-
-        .mentor-card p.description {
+        .event p {
             color: #ffffff;
             font-size: 1em;
             line-height: 1.5;
-            margin: 0;
+            margin: 5px 0;
             opacity: 0.8;
         }
 
-        .mentor-card .linkedin-info {
+        .event-info {
             position: absolute;
             bottom: -100%;
             left: 0;
@@ -184,35 +177,36 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
-        .mentor-card:hover .linkedin-info {
+        .event:hover .event-info,
+        .event.touch-active .event-info {
             bottom: 0;
         }
 
-        .mentor-card .linkedin-info a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
+        .event-info p {
+            margin: 5px 0;
+            font-size: 0.9em;
         }
 
-        .mentor-card .linkedin-info img {
-            width: 40px;
-            height: 40px;
-            border: none;
-            margin: 0;
-            filter: brightness(0) invert(1);
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 0 10px red;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .social-link {
+            color: red;
+            text-decoration: none;
+            transition: color 0.3s, text-shadow 0.3s;
         }
 
-        .mentor-card:hover .linkedin-info img {
-            animation: fadeIn 0.3s ease forwards;
+        .social-link:hover {
+            color: white;
+            text-shadow: 0 0 5px white;
         }
     </style>
 </head>
@@ -231,76 +225,74 @@
         </nav>
     </header>
 
-    <section class="mentor-section">
-        <h1>Our Mentors</h1>
-        <div class="mentor-cards">
-            <div class="mentor-card">
-                <img src="kanchan.jpg" alt="Kanchan Kumari">
-                <h3>Kanchan Kumari</h3>
-                <p class="role">Campus Manager</p>
-                <p class="description">Passionate about student growth, highly motivational and communicative.</p>
-                <div class="linkedin-info">
-                    <a href="https://www.linkedin.com/in/kanchan-kumari-151404250/" target="_blank">
-                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-                    </a>
+    <section class="event-section">
+        <h1>Our Events</h1>
+        <div class="event-container">
+            <div class="event">
+                <img src="joget.jpg" alt="Hackathon Event">
+                <h2>Hackathon</h2>
+                <p>Join us for an exciting hackathon experience!</p>
+                <div class="event-info">
+                    <div>
+                        <p>Date: September 27</p>
+                        <p>Location: In Time Tec, LLC, Meridian, ID</p>
+                        <p>Dive into the world of data science!</p>
+                    </div>
                 </div>
             </div>
-            <div class="mentor-card">
-                <img src="manav.jpg" alt="Manav Verma">
-                <h3>Manav Verma</h3>
-                <p class="role">Technical Mentor</p>
-                <p class="description">Expert in guiding students through technical challenges and problem-solving.</p>
-                <div class="linkedin-info">
-                    <a href="https://www.linkedin.com/in/manav-verma-414927188/" target="_blank">
-                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-                    </a>
+
+            <div class="event">
+                <img src="leet.jpg" alt="LeetCode Challenge">
+                <h2>LeetCode Challenge</h2>
+                <p>Test your coding skills with our LeetCode challenge!</p>
+                <div class="event-info">
+                    <div>
+                        <p>Date: October 25, 2024</p>
+                        <p>Location: Online</p>
+                        <p>Challenge yourself with coding problems!</p>
+                    </div>
                 </div>
             </div>
-            <div class="mentor-card">
-                <img src="aparna.jpg" alt="Aparna Tiwari" style="object-fit: cover; object-position: center;">
-                <h3>Aparna Tiwari</h3>
-                <p class="role">Technical Mentor</p>
-                <p class="description">Specializes in making complex concepts simple and accessible.</p>
-                <div class="linkedin-info">
-                    <a href="http://linkedin.com/in/aparna-tiwari-642038274/" target="_blank">
-                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-                    </a>
-                </div>
-            </div>
-            <div class="mentor-card">
-                <img src="junaid.jpg" alt="Junaid Khan">
-                <h3>Junaid Khan</h3>
-                <p class="role">Technical Mentor</p>
-                <p class="description">Brings practical industry experience to enhance learning outcomes.</p>
-                <div class="linkedin-info">
-                    <a href="https://www.linkedin.com/in/junaid-khan" target="_blank">
-                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-                    </a>
-                </div>
-            </div>
-            <div class="mentor-card">
-                <img src="rohith.jpg" alt="Rohith">
-                <h3>Rohith</h3>
-                <p class="role">Technical Mentor</p>
-                <p class="description">Focuses on building strong foundations in programming concepts.</p>
-                <div class="linkedin-info">
-                    <a href="https://www.linkedin.com/in/rohith" target="_blank">
-                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-                    </a>
-                </div>
-            </div>
-            <div class="mentor-card">
-                <img src="khyati.jpg" alt="Khyati Sadana">
-                <h3>Khyati Sadana</h3>
-                <p class="role">Campus Manager</p>
-                <p class="description">Dynamic Program Manager with a proven track record</p>
-                <div class="linkedin-info">
-                    <a href="https://www.linkedin.com/in/khyati-sadana-9a4978290/" target="_blank">
-                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-                    </a>
+
+            <div class="event">
+                <img src="dev.jpg" alt="HackQuest">
+                <h2>HackQuest</h2>
+                <p>Embark on an exciting cybersecurity adventure!</p>
+                <div class="event-info">
+                    <div>
+                        <p>Date: November 12</p>
+                        <p>Location: Virtual</p>
+                        <p>Explore the world of cybersecurity!</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <footer>
+        <p>&copy; 2025 Squad Representation. All Rights Reserved.</p>
+        <a href="#" class="social-link">Follow us on Instagram</a>
+    </footer>
+
+    <script>
+        // Add touch event handling
+        document.querySelectorAll('.event').forEach(event => {
+            event.addEventListener('touchstart', function(e) {
+                e.preventDefault(); // Prevent default touch behavior
+                this.classList.add('touch-active');
+            });
+
+            event.addEventListener('touchend', function() {
+                this.classList.remove('touch-active');
+            });
+
+            // Handle touch outside to close
+            document.addEventListener('touchstart', function(e) {
+                if (!event.contains(e.target)) {
+                    event.classList.remove('touch-active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
