@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Squad 80</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"> <!-- Font Awesome -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
             color: white;
-            background-color: #000;
             background-image: url('backgroundimg.jpg');
             background-size: cover;
             background-position: center;
@@ -69,6 +69,33 @@
             text-shadow: 0 0 5px white;
         }
 
+        /* Social Links - Vertical Styling */
+        .social-links {
+            position: fixed;
+            top: 20%;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px red;
+        }
+
+        .social-links a {
+            color: red;
+            font-size: 1.8em;
+            transition: color 0.3s, transform 0.3s;
+            text-align: center;
+        }
+
+        .social-links a:hover {
+            color: white;
+            transform: scale(1.2);
+            text-shadow: 0 0 5px white;
+        }
+
         .hero {
             text-align: center;
             padding: 200px 0;
@@ -105,6 +132,47 @@
             color: white;
             box-shadow: 0 0 25px white;
         }
+
+        /* Empower Your Knowledge Section */
+        .knowledge-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 20px;
+            background: black;
+            text-align: left;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .stats-box {
+            background-color: red;
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0 0 15px red;
+        }
+
+        .knowledge-text {
+            margin-left: 40px;
+            max-width: 400px;
+        }
+
+        .knowledge-text h2 {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .knowledge-text p {
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body>
@@ -112,13 +180,22 @@
         <nav>
             <div class="logo">Squad 80</div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="ttttttttt.html">Home</a></li>
+                <li><a href="#f">About</a></li>
+                <li><a href="Mentors.html">Mentors</a></li>
+                <li><a href="#Students">Students</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="Contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
+
+    <!-- Vertical Social Icons -->
+    <div class="social-links">
+        <a href="https://www.instagram.com/kalvium_official/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://x.com/kalvium_edu" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://www.youtube.com/channel/UCg6n0KpFmhje8kjjBOCRtGg" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+    </div>
 
     <section id="home" class="hero">
         <div class="hero-content">
@@ -128,29 +205,32 @@
         </div>
     </section>
 
+    <!-- Empower Your Knowledge Section -->
+    <section class="knowledge-section">
+        <div class="stats-container">
+            <div class="stats-box">24<br>Team Members</div>
+            <div class="stats-box">2+<br>Hackathons</div>
+            <div class="stats-box">890+<br>Career Development</div>
+            <div class="stats-box">100%<br>Passion</div>
+        </div>
+        <div class="knowledge-text">
+            <h2>EMPOWER YOUR KNOWLEDGE</h2>
+            <p>Whether you're looking to further your career or pursue a passion, we have the resources and expertise to support your journey.</p>
+        </div>
+    </section>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const text = "Education Meets Industry";
             let i = 0;
-            const speed = 100;
             function typeWriter() {
                 if (i < text.length) {
                     document.getElementById("hero-text").innerHTML += text.charAt(i);
                     i++;
-                    setTimeout(typeWriter, speed);
+                    setTimeout(typeWriter, 100);
                 }
             }
             typeWriter();
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetElement = document.querySelector(this.getAttribute('href'));
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
         });
     </script>
 </body>
