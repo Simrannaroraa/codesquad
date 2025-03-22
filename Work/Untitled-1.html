@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squad 72</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif; /* More modern font */
+            margin: 0;
+            padding: 0;
+            color: #34495e; /* Darker text */
+            line-height: 1.7; /* Improved line height */
+        }
+
+        header {
+            background-color: #2c3e50; /* Darker header background */
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 2.2em; /* Larger logo */
+            font-weight: 700; /* Bold font weight */
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-left: 30px; /* Increased spacing */
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px; /* Slightly larger padding */
+            transition: color 0.3s, font-weight 0.3s; /* Added font-weight transition */
+            font-weight: 500; /* Medium font weight for links */
+        }
+
+        .nav-links a:hover {
+            color: #f1c40f; /* Brighter hover color (yellowish) */
+            font-weight: 600;  /* Make it slightly bolder on hover */
+        }
+
+        .hero {
+             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('hero-image.jpg') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 200px 0; /* Increased padding */
+            display: flex; /* For vertical centering of content */
+            align-items: center;
+        }
+
+
+        .hero-content {
+            max-width: 900px; /* Wider content area */
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5em; /* Larger heading */
+            margin-bottom: 25px; /* Increased margin */
+            font-weight: 700; /* Bold heading */
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.3em; /* Larger paragraph */
+            margin-bottom: 40px; /* Increased margin */
+            font-weight: 400;
+            opacity: 0.9; /* Slightly less opaque */
+        }
+
+        .btn {
+            background-color: #f1c40f; /* Brighter button color (yellowish) */
+            color: #2c3e50; /* Dark text color for button */
+            padding: 14px 30px; /* Increased button padding */
+            text-decoration: none;
+            border-radius: 6px; /* Slightly more rounded */
+            transition: background-color 0.3s, transform 0.2s; /* Added transform */
+            font-size: 1.1em; /* Larger button text */
+            font-weight: 600; /* Make button text bold */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Add shadow to button */
+            display: inline-block; /* Important for transform to work */
+        }
+
+        .btn:hover {
+            background-color: #f0b207; /* Slightly darker yellow */
+            transform: translateY(-2px); /* Slight upward movement on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increased shadow on hover*/
+        }
+
+        .section {
+            padding: 100px 20px; /* Increased section padding */
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 2.5em; /* Larger heading */
+            margin-bottom: 30px; /* Increased margin */
+            font-weight: 600; /* Bold section heading */
+            color: #2c3e50;
+            letter-spacing: -0.02em;
+            text-align: center; /* Center heading */
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Slightly wider */
+            gap: 30px;
+            margin-top: 50px; /* Increased margin */
+        }
+
+        .project-item {
+            background-color: #ffffff; /* White background */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
+            transition: transform 0.2s, box-shadow 0.2s; /* Added shadow transition */
+            text-align: left; /* Left align project item text */
+        }
+
+        .project-item:hover {
+            transform: translateY(-4px); /* Slight upward movement on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+        }
+
+        .project-item h3 {
+            font-size: 1.5em; /* Larger heading */
+            margin-bottom: 15px; /* Increased margin */
+            font-weight: 600; /* Bold heading */
+            color: #2c3e50;
+        }
+
+        .project-item p {
+            font-size: 1.1em; /* Larger paragraph */
+            color: #666; /* Slightly darker paragraph text */
+            line-height: 1.7;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px; /* Wider form */
+            margin: 30px auto; /* Increased margin */
+            text-align: left; /* Added text alignment */
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 15px; /* Increased padding */
+            margin-bottom: 20px; /* Increased margin */
+            border: 1px solid #ddd;
+            border-radius: 6px; /* More rounded */
+            font-size: 1.1em; /* Larger input text */
+            transition: border-color 0.2s; /* Added border color transition */
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none; /* Remove default outline */
+            border-color: #f1c40f; /* Highlight border on focus */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* Add a subtle shadow on focus */
+        }
+
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 150px; /* Increased height */
+        }
+
+        .contact-form button {
+            background-color: #2c3e50;
+            color: white;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            font-size: 1.1em;
+            font-weight: 600;
+            align-self: center; /* Center the button */
+            width: fit-content; /* Adjust width to content */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Add shadow to button */
+
+        }
+
+        .contact-form button:hover {
+            background-color: #1a2533;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: #2c3e50; /* Darker footer */
+            color: #fff;
+            text-align: center;
+            padding: 25px 0; /* Increased padding */
+            margin-top: 80px; /* Increased margin */
+        }
+        footer p{
+            opacity: 0.8;
+            font-size: 1.1em;
+        }
+        .section .container p{
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Squad 72</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Squad 72</h1>
+            <p>Empowering Innovation and Collaboration</p>
+            <a href="#about" class="btn">Explore</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Squad 72 is a dynamic team dedicated to creating impactful solutions. We believe in collaborative innovation and strive to make a positive difference. Our diverse skills and passion drive us to tackle complex challenges and achieve remarkable results.</p>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>Our Projects</h2>
+            <div class="project-grid">
+                <div class="project-item">
+                    <h3>Project Alpha</h3>
+                    <p>A cutting-edge software solution designed to streamline workflow.</p>
+                </div>
+                <div class="project-item">
+                    <h3>Project Beta</h3>
+                    <p>An innovative initiative focused on sustainable development and community engagement.</p>
+                </div>
+                <div class="project-item">
+                    <h3>Project Gamma</h3>
+                    <p>A research-driven project aimed at advancing knowledge in artificial intelligence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Squad 72</p>
+    </footer>
+
+    <script>
+        // You can add JavaScript interactivity here
+    </script>
+</body>
+</html>

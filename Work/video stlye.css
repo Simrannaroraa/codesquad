@@ -1,0 +1,31 @@
+/* Glitch Transition Effect */
+@keyframes glitch {
+    0% { transform: translate(0); filter: hue-rotate(0deg); }
+    20% { transform: translate(-3px, 3px); }
+    40% { transform: translate(3px, -3px); }
+    60% { transform: translate(-3px, -3px); }
+    80% { transform: translate(3px, 3px); filter: hue-rotate(10deg); }
+    100% { transform: translate(0); filter: hue-rotate(0deg); }
+  }
+  
+  @keyframes neon-glow {
+    0%, 100% { text-shadow: 0 0 5px cyan, 0 0 10px magenta; }
+    50% { text-shadow: 0 0 10px cyan, 0 0 20px magenta; }
+  }
+  
+  .glitch-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00ffff;
+    animation: glitch 0.2s infinite alternate, neon-glow 1s infinite;
+  }
+  
+  .glitch-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .glitch-active {
+    animation: glitch 0.5s ease-in-out;
+  }
+  
