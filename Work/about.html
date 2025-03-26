@@ -139,6 +139,129 @@
             text-align: center;
         }
 
+        .kalvium-info-box {
+            background: none;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 0 auto 100px;
+            max-width: 1000px;
+            border: 2px solid rgba(255, 59, 48, 0.6);
+            box-shadow: 0 0 30px rgba(255, 59, 48, 0.4);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .kalvium-info-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('kal.jpg') center/cover;
+            opacity: 0.7;
+            z-index: 0;
+            transition: opacity 0.3s ease;
+            filter: brightness(0.95) contrast(0.95) blur(1px);
+        }
+
+        .kalvium-info-box:hover::before {
+            opacity: 0.8;
+            filter: brightness(1) contrast(1) blur(0.5px);
+        }
+
+        .kalvium-info-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 40px rgba(255, 59, 48, 0.5);
+        }
+
+        .kalvium-info-content {
+            position: relative;
+            z-index: 1;
+            background: none;
+            padding: 30px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .kalvium-info-title {
+            font-size: 2.5em;
+            color: #FF3B30;
+            margin-bottom: 30px;
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .kalvium-info-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            margin-bottom: 25px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .kalvium-highlights {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 40px;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .highlight-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            flex: 1;
+            min-width: 220px;
+            border: 1px solid rgba(255, 59, 48, 0.4);
+            box-shadow: 0 0 15px rgba(255, 59, 48, 0.2);
+            backdrop-filter: blur(3px);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .highlight-item:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 20px rgba(255, 59, 48, 0.3);
+        }
+
+        .highlight-item h3 {
+            color: #FF3B30;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .highlight-item p {
+            color: white;
+            font-size: 1.1em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: 500;
+            letter-spacing: 0.2px;
+        }
+
         .creators-section {
             margin-bottom: 100px;
         }
@@ -367,31 +490,99 @@
             margin: 0;
         }
 
-        /* Add footer styles */
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
-            margin-top: 50px;
-            position: relative;
-            z-index: 1;
+        .footer-links-section {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 60px 0 40px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 59, 48, 0.3);
         }
 
-        .copyright {
-            font-size: 1.2em;
-            color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 15px;
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
         }
 
-        .proudly-learning {
-            font-size: 1.4em;
-            color: rgba(255, 255, 255, 0.7);
+        .footer-column {
+            color: white;
         }
 
-        .proudly-learning span {
+        .footer-column h3 {
             color: #FF3B30;
-            font-weight: 500;
-            text-shadow: 0 0 10px rgba(255, 59, 48, 0.3);
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .footer-column p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            font-size: 0.9em;
+            margin: 0;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: #FF3B30;
+            padding-left: 5px;
+        }
+
+        .footer-contact {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 59, 48, 0.3);
+            text-align: center;
+        }
+
+        .footer-contact p {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 5px 0;
+            font-size: 0.9em;
+        }
+
+        .footer-social {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-social a {
+            color: #FF3B30;
+            font-size: 1.5em;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 30px;
+            }
         }
     </style>
     <script>
@@ -429,23 +620,20 @@
     </header>
 
     <section class="about-section">
-        <h1 class="section-title">About Squad 80</h1>
+        <h1 class="section-title">About Us</h1>
         
-        <div class="vision-container">
-            <div class="vision-card">
-                <i class="fas fa-bullseye"></i>
-                <h3>Our Mission</h3>
-                <p>To revolutionize education by bridging the gap between academia and industry, creating a new generation of tech leaders who are ready to tackle tomorrow's challenges.</p>
-            </div>
-            <div class="vision-card">
-                <i class="fas fa-eye"></i>
-                <h3>Our Vision</h3>
-                <p>To be the leading force in transforming education, making quality tech education accessible to all while maintaining the highest standards of excellence.</p>
-            </div>
-            <div class="vision-card">
-                <i class="fas fa-star"></i>
-                <h3>Our Values</h3>
-                <p>Innovation, Excellence, Integrity, and Student Success are the cornerstones of our educational philosophy.</p>
+        <div class="kalvium-info-box">
+            <div class="kalvium-info-content">
+                <p class="kalvium-info-text">
+                    Kalvium is a revolutionary learning platform that transforms tech education through immersive, industry-relevant programs. We combine cutting-edge curriculum with hands-on projects and mentorship to create future-ready tech professionals.
+                </p>
+                <p class="kalvium-info-text">
+                    Our mission is to bridge the gap between traditional education and industry requirements, ensuring our students are equipped with the latest skills and practical experience needed in today's fast-paced tech world.
+                </p>
+                <p class="kalvium-info-text">
+                    At Kalvium, we believe in learning by doing. Our unique approach combines theoretical knowledge with practical implementation, allowing students to work on real-world projects while learning. Through our innovative curriculum, students master not just coding, but also problem-solving, collaboration, and professional development skills.
+                </p>
+                
             </div>
         </div>
 
@@ -552,9 +740,49 @@
         </div>
     </section>
 
-    <footer>
-        <div class="copyright">© 2025 SQUAD 80. All rights reserved.</div>
-        <div class="proudly-learning">Proudly learning at <span>Kalvium</span></div>
-    </footer>
+    <section class="footer-links-section">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Email: contactus@kalvium.com</p>
+                <p>Mobile: +91 9483 200 300</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Bangalore Office</h3>
+                <p>Kalvium, 403, 22nd Cross Rd, Parangi Palaya, BDA Layout, HSR Layout, Bengaluru, Karnataka 560034</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Coimbatore Office</h3>
+                <p>SNS Kalvi Nagar, Sathy Main Road (NH-209) Vazhiyampalayam, Saravanampatti Post Coimbatore – 641035, Tamil Nadu, IN.</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Programs</h3>
+                <ul>
+                    <li><a href="#">Software Product Engineering</a></li>
+                    <li><a href="#">AI & Future Technologies</a></li>
+                    <li><a href="#">Get Prospectus</a></li>
+                    <li><a href="#">Student Fee Portal</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

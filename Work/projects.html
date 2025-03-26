@@ -136,11 +136,11 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px;
         }
 
         .project-card {
@@ -150,6 +150,7 @@
             border: 1px solid rgba(255, 59, 48, 0.3);
             box-shadow: 0 0 15px rgba(255, 59, 48, 0.2);
             transition: all 0.3s ease;
+            width: 100%;
         }
 
         .project-card:hover {
@@ -207,23 +208,32 @@
         .project-link {
             color: #FF3B30;
             text-decoration: none;
-            padding: 8px 15px;
-            border: 1px solid #FF3B30;
-            border-radius: 5px;
+            padding: 12px 25px;
+            border: 2px solid #FF3B30;
+            border-radius: 30px;
             transition: all 0.3s ease;
-            font-size: 0.9em;
-            display: flex;
+            font-size: 1em;
+            display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 10px;
+            background: transparent;
+            position: relative;
+            overflow: hidden;
         }
 
         .project-link:hover {
             background: #FF3B30;
             color: white;
+            transform: translateX(5px);
         }
 
         .project-link i {
-            font-size: 1.1em;
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+        }
+
+        .project-link:hover i {
+            transform: translateX(5px);
         }
 
         /* Add footer styles */
@@ -276,37 +286,39 @@
         <h1>Our Projects</h1>
     </section>
 
-    <section class="projects-grid">
+    <div class="projects-grid">
         <div class="project-card">
-            <img src="project1.jpg" alt="E-Learning Platform" class="project-image">
+            <img src="busbars.jpg" alt="Churn Rate Predictor" class="project-image">
             <div class="project-content">
-                <h3 class="project-title">E-Learning Platform</h3>
-                <p class="project-description">An interactive learning platform with real-time collaboration features.</p>
+                <h3 class="project-title">Churn Rate Predictor</h3>
+                <p class="project-description">Predicts and prevent customer churn with advanced analytics. Gain insights to improve retention and boost business growth.</p>
                 <div class="project-tech">
                     <span class="tech-tag">React</span>
                     <span class="tech-tag">Node.js</span>
                     <span class="tech-tag">MongoDB</span>
                 </div>
                 <div class="project-links">
-                    <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
-                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    <a href="https://churn-rate-predictor.onrender.com" class="project-link" target="_blank">
+                        Visit Website <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
 
         <div class="project-card">
-            <img src="project2.jpg" alt="Task Management App" class="project-image">
+            <img src="AI.jpg" alt="Ai interview model" class="project-image">
             <div class="project-content">
-                <h3 class="project-title">Task Management App</h3>
-                <p class="project-description">A collaborative task management solution with real-time updates.</p>
+                <h3 class="project-title">Ai interview model</h3>
+                <p class="project-description">An intelligent platform that conducts mock interviews, evaluates responses, and provides real-time feedback. Enhance your interview skills with AI-driven insights.</p>
                 <div class="project-tech">
                     <span class="tech-tag">Vue.js</span>
                     <span class="tech-tag">Express</span>
                     <span class="tech-tag">PostgreSQL</span>
                 </div>
                 <div class="project-links">
-                    <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
-                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    <a href="https://ai-mock-interview-henna.vercel.app/" class="project-link" target="_blank">
+                        Visit Website <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -322,25 +334,27 @@
                     <span class="tech-tag">Flask</span>
                 </div>
                 <div class="project-links">
-                    <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
-                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    <a href="https://ai-chat-assistant-demo.herokuapp.com" class="project-link" target="_blank">
+                        Visit Website <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
 
         <div class="project-card">
-            <img src="project4.jpg" alt="Health Tracking System" class="project-image">
+            <img src="ttt.jpg" alt="TIC TAC TOE" class="project-image">
             <div class="project-content">
-                <h3 class="project-title">Health Tracking System</h3>
-                <p class="project-description">A comprehensive health monitoring and analytics platform.</p>
+                <h3 class="project-title">TIC TAC TOE </h3>
+                <p class="project-description">A classic two-player game where you aim to align three X's or O's in a row—horizontally, vertically, or diagonally—to win. Play against a friend or an AI opponent.</p>
                 <div class="project-tech">
                     <span class="tech-tag">Angular</span>
                     <span class="tech-tag">Django</span>
                     <span class="tech-tag">MySQL</span>
                 </div>
                 <div class="project-links">
-                    <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
-                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    <a href="https://tic-tac-toe-by.netlify.app/" class="project-link" target="_blank">
+                        Visit Website <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -356,8 +370,9 @@
                     <span class="tech-tag">Firebase</span>
                 </div>
                 <div class="project-links">
-                    <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
-                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    <a href="https://social-media-dashboard-demo.herokuapp.com" class="project-link" target="_blank">
+                        Visit Website <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -373,12 +388,13 @@
                     <span class="tech-tag">Stripe</span>
                 </div>
                 <div class="project-links">
-                    <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
-                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    <a href="https://e-commerce-platform-demo.herokuapp.com" class="project-link" target="_blank">
+                        Visit Website <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <footer>
         <div class="copyright">© 2025 SQUAD 80. All rights reserved.</div>
