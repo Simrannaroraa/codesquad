@@ -16,6 +16,10 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            position: relative;
+            padding-top: 80px;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
         body::before {
@@ -25,7 +29,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75));
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75));
             z-index: -1;
         }
 
@@ -43,8 +47,13 @@
 
         header {
             background: rgba(0, 0, 0, 0.9);
-            padding: 20px 0;
+            padding: 0;
             box-shadow: 0 0 10px red;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: 80px;
         }
 
         nav {
@@ -54,29 +63,44 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            height: 100%;
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-size: 2.5em;
             font-weight: 700;
-            font-family: 'Orbitron', sans-serif;
-            color: red;
-            text-shadow: 0 0 10px red;
-            animation: glitch 0.5s infinite alternate;
+            font-family: 'Inter', sans-serif;
+            color: #FF3B30;
         }
 
-        @keyframes glitch {
-            0% { text-shadow: 2px 2px 5px red; }
-            100% { text-shadow: -2px -2px 5px red; }
+        .logo img {
+            height: 30px;
+            width: auto;
+        }
+
+        .logo span {
+            color: #FF3B30;
+            font-weight: 500;
+            text-transform: uppercase;
         }
 
         .nav-links {
             list-style: none;
             display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            height: 100%;
         }
 
         .nav-links li {
             margin-left: 30px;
+            height: 100%;
+            display: flex;
+            align-items: center;
         }
 
         .nav-links a {
@@ -85,6 +109,9 @@
             padding: 10px 15px;
             transition: color 0.3s, text-shadow 0.3s;
             font-weight: 500;
+            height: 100%;
+            display: flex;
+            align-items: center;
         }
 
         .nav-links a:hover {
@@ -94,7 +121,12 @@
 
         .mentor-section {
             text-align: center;
-            padding: 50px 20px;
+            padding: 40px 0;
+            position: relative;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
         }
 
         .mentor-section h1 {
@@ -111,7 +143,9 @@
             flex-wrap: wrap;
             gap: 30px;
             max-width: 1200px;
-            margin: auto;
+            margin: 0 auto;
+            padding: 0 20px;
+            flex-grow: 1;
         }
 
         .mentor-card {
@@ -219,14 +253,17 @@
 <body>
     <header>
         <nav>
-            <div class="logo">Kalvium</div>
+            <div class="logo">
+                <img src="klogo.jpg" alt="Kalvium Logo">
+                <span>Kalvium</span>
+            </div>
             <ul class="nav-links">
-                <li><a href="ttttttttt.html">Home</a></li>
+                <li><a href="ttttt.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="Mentors.html">Mentors</a></li>
                 <li><a href="student.html">Students</a></li>
-                <li><a href="event.html">Events</a></li>
-                <li><a href="Contact.html">Contact</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="memories.html">Memories</a></li>
             </ul>
         </nav>
     </header>

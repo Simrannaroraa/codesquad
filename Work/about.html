@@ -12,10 +12,15 @@
             margin: 0;
             padding: 0;
             color: white;
+            background-color: #000;
             background-image: url('backgroundimg.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            position: relative;
+            padding-top: 80px;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
         body::before {
@@ -25,7 +30,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55));
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75));
             z-index: -1;
         }
 
@@ -37,14 +42,19 @@
             width: 100%;
             height: 100%;
             background: url('backgroundimg.jpg') no-repeat center center/cover;
-            filter: blur(5px) brightness(0.8) contrast(0.9);
+            filter: blur(2px) brightness(0.5);
             z-index: -2;
         }
 
         header {
             background: rgba(0, 0, 0, 0.9);
-            padding: 20px 0;
+            padding: 0;
             box-shadow: 0 0 10px red;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: 80px;
         }
 
         nav {
@@ -54,37 +64,55 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            height: 100%;
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-size: 2.5em;
             font-weight: 700;
-            font-family: 'Orbitron', sans-serif;
-            color: red;
-            text-shadow: 0 0 10px red;
-            animation: glitch 0.5s infinite alternate;
+            font-family: 'Inter', sans-serif;
+            color: #FF3B30;
         }
 
-        @keyframes glitch {
-            0% { text-shadow: 2px 2px 5px red; }
-            100% { text-shadow: -2px -2px 5px red; }
+        .logo img {
+            height: 30px;
+            width: auto;
+        }
+
+        .logo span {
+            color: #FF3B30;
+            font-weight: 500;
         }
 
         .nav-links {
             list-style: none;
             display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            height: 100%;
         }
 
         .nav-links li {
             margin-left: 30px;
+            height: 100%;
+            display: flex;
+            align-items: center;
         }
 
         .nav-links a {
-            color: red;
+            color: #FF3B30;
             text-decoration: none;
             padding: 10px 15px;
-            transition: color 0.3s, text-shadow 0.3s;
+            transition: color 0.3s;
             font-weight: 500;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
         }
 
         .nav-links a:hover {
@@ -93,18 +121,22 @@
         }
 
         .about-section {
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
         }
 
         .section-title {
-            text-align: center;
-            font-size: 3em;
+            font-size: 3.5em;
             font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 15px white;
             color: white;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-            margin-bottom: 30px;
+            margin-bottom: 50px;
+            text-align: center;
         }
 
         .creators-section {
@@ -177,6 +209,7 @@
             margin-bottom: 8px;
             font-weight: 600;
             padding: 0 20px;
+            font-family: 'Orbitron', sans-serif;
         }
 
         .creator-role {
@@ -214,55 +247,60 @@
         .vision-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 100px;
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
         }
 
         .vision-card {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 0, 0, 0.3);
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.1);
             transition: all 0.3s ease;
+            text-align: center;
         }
 
         .vision-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
-            border-color: rgba(255, 0, 0, 0.7);
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+            border-color: rgba(255, 0, 0, 0.4);
         }
 
         .vision-card i {
-            font-size: 2.5em;
-            color: red;
-            margin-bottom: 20px;
+            font-size: 2em;
+            color: #FF3B30;
+            margin-bottom: 15px;
         }
 
         .vision-card h3 {
-            font-size: 1.8em;
+            font-size: 1.6em;
             color: white;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            font-family: 'Orbitron', sans-serif;
         }
 
         .vision-card p {
             color: #ccc;
-            line-height: 1.6;
+            line-height: 1.5;
+            font-size: 0.95em;
         }
 
         .journey-section {
-            margin-top: 50px;
-            overflow-x: auto;
-            padding: 20px 0;
+            margin: 60px auto;
+            max-width: 1200px;
+            padding: 0 20px;
         }
 
         .timeline {
             position: relative;
             display: flex;
-            gap: 40px;
-            padding: 20px 60px;
-            min-width: min-content;
+            gap: 30px;
+            padding: 20px 0;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .timeline::before {
@@ -271,67 +309,89 @@
             top: 50%;
             left: 0;
             width: 100%;
-            height: 2px;
-            background: rgba(255, 0, 0, 0.3);
+            height: 1px;
+            background: rgba(255, 0, 0, 0.2);
             transform: translateY(-50%);
-            filter: blur(1px);
         }
 
         .timeline-item {
             position: relative;
-            width: 250px;
+            width: 220px;
             flex-shrink: 0;
         }
 
         .timeline-content {
             position: relative;
-            padding: 25px;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 10px;
-            border: 1px solid rgba(255, 0, 0, 0.3);
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.1);
             transition: all 0.3s ease;
-            min-height: 120px;
+            min-height: 100px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            text-align: center;
         }
 
         .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
         }
 
         .timeline-content::before {
             content: '';
             position: absolute;
-            top: -10px;
+            top: -8px;
             left: 50%;
             transform: translateX(-50%);
-            width: 15px;
-            height: 15px;
-            background: red;
+            width: 12px;
+            height: 12px;
+            background: #FF3B30;
             border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
         }
 
         .timeline-content h3 {
-            color: red;
-            margin-bottom: 10px;
-            font-size: 1.3em;
-            text-align: center;
+            color: #FF3B30;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+            font-family: 'Orbitron', sans-serif;
         }
 
         .timeline-content p {
             color: #ccc;
-            line-height: 1.6;
-            font-size: 1em;
-            text-align: center;
+            line-height: 1.4;
+            font-size: 0.9em;
             margin: 0;
-            padding: 0 10px;
         }
 
-        .timeline-date {
-            display: none;
+        /* Add footer styles */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
+            margin-top: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .copyright {
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 15px;
+        }
+
+        .proudly-learning {
+            font-size: 1.4em;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .proudly-learning span {
+            color: #FF3B30;
+            font-weight: 500;
+            text-shadow: 0 0 10px rgba(255, 59, 48, 0.3);
         }
     </style>
     <script>
@@ -353,14 +413,17 @@
 <body>
     <header>
         <nav>
-            <div class="logo">KALVIUM</div>
+            <div class="logo">
+                <img src="klogo.jpg" alt="Kalvium Logo">
+                <span>KALVIUM</span>
+            </div>
             <ul class="nav-links">
-                <li><a href="ttttttttt.html">Home</a></li>
+                <li><a href="ttttt.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="Mentors.html">Mentors</a></li>
                 <li><a href="student.html">Students</a></li>
-                <li><a href="event.html">Events</a></li>
-                <li><a href="Contact.html">Contact</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="memories.html">Memories</a></li>
             </ul>
         </nav>
     </header>
@@ -488,5 +551,10 @@
             </div>
         </div>
     </section>
+
+    <footer>
+        <div class="copyright">© 2025 SQUAD 80. All rights reserved.</div>
+        <div class="proudly-learning">Proudly learning at <span>Kalvium</span></div>
+    </footer>
 </body>
 </html>

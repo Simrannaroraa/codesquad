@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memories - Kalvium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            background-color: #000;
+            background-image: url('backgroundimg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            padding-top: 80px;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75));
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('backgroundimg.jpg') no-repeat center center/cover;
+            filter: blur(2px) brightness(0.5);
+            z-index: -2;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 0;
+            box-shadow: 0 0 10px red;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: 80px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 2.5em;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            color: #FF3B30;
+        }
+
+        .logo img {
+            height: 30px;
+            width: auto;
+        }
+
+        .logo span {
+            color: #FF3B30;
+            font-weight: 500;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #FF3B30;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: color 0.3s;
+            font-weight: 500;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-links a:hover {
+            color: white;
+            text-shadow: 0 0 5px white;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 15px white;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .memories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .memory-card {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .memory-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
+            border-color: #FF3B30;
+        }
+
+        .memory-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255, 0, 0, 0.3);
+        }
+
+        .memory-content {
+            padding: 20px;
+        }
+
+        .memory-title {
+            font-size: 1.5em;
+            color: #FF3B30;
+            margin-bottom: 10px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .memory-date {
+            color: #999;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .memory-description {
+            color: white;
+            line-height: 1.6;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            color: white;
+            text-align: center;
+            margin: 40px 0;
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 15px white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
+            margin-top: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .copyright {
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 15px;
+        }
+
+        .proudly-learning {
+            font-size: 1.4em;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .proudly-learning span {
+            color: #FF3B30;
+            font-weight: 500;
+            text-shadow: 0 0 10px rgba(255, 59, 48, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="klogo.jpg" alt="Kalvium Logo">
+                <span>KALVIUM</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="ttttt.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="Mentors.html">Mentors</a></li>
+                <li><a href="student.html">Students</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="memories.html">Memories</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Our Memories</h1>
+    </section>
+
+    <section class="memories-grid">
+        <div class="memory-card">
+            <img src="joget.jpg" alt="Hackathon Event" class="memory-image">
+            <div class="memory-content">
+                <h3 class="memory-title">24 Hour Hackathon</h3>
+                <div class="memory-date">September 27, 2024</div>
+                <p class="memory-description">An incredible journey of innovation and collaboration during our 24-hour hackathon.</p>
+            </div>
+        </div>
+
+        <div class="memory-card">
+            <img src="leet.jpg" alt="LeetCode Challenge" class="memory-image">
+            <div class="memory-content">
+                <h3 class="memory-title">LeetCode Challenge</h3>
+                <div class="memory-date">October 25, 2024</div>
+                <p class="memory-description">Students showcasing their problem-solving skills in our coding challenge.</p>
+            </div>
+        </div>
+
+        <div class="memory-card">
+            <img src="dev.jpg" alt="Tech Workshop" class="memory-image">
+            <div class="memory-content">
+                <h3 class="memory-title">Tech Workshop</h3>
+                <div class="memory-date">November 12, 2024</div>
+                <p class="memory-description">Interactive sessions and hands-on learning with industry experts.</p>
+            </div>
+        </div>
+
+        <div class="memory-card">
+            <img src="hwh4.0.jpg" alt="Hack with Her 4.0" class="memory-image">
+            <div class="memory-content">
+                <h3 class="memory-title">Hack with Her 4.0</h3>
+                <div class="memory-date">March 5-6, 2025</div>
+                <p class="memory-description">Celebrating diversity and innovation in technology.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="copyright">© 2025 SQUAD 80. All rights reserved.</div>
+        <div class="proudly-learning">Proudly learning at <span>Kalvium</span></div>
+    </footer>
+</body>
+</html> 
