@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Squad 80</title>
+    <title>Blog - Squad 80</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <style>
         * {
             margin: 0;
@@ -95,6 +96,10 @@
             position: relative;
         }
 
+        .nav-links a:hover {
+            color: #FF3B30;
+        }
+
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -105,10 +110,6 @@
             background: #FF3B30;
             transition: all 0.3s ease;
             transform: translateX(-50%);
-        }
-
-        .nav-links a:hover {
-            color: #FF3B30;
         }
 
         .nav-links a:hover::after {
@@ -123,7 +124,7 @@
             width: 100%;
         }
 
-        .projects-section {
+        .blog-section {
             max-width: 1200px;
             margin: 40px auto;
             padding: 0 20px;
@@ -137,76 +138,59 @@
             font-family: 'Orbitron', sans-serif;
         }
 
-        .projects-grid {
+        .blog-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(2, auto);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             padding: 20px 0;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
-        .project-card {
+        .blog-card {
             background: #ffffff;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
         }
 
-        .project-card:hover {
+        .blog-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(255, 59, 48, 0.15);
         }
 
-        .project-image {
+        .blog-image {
             width: 100%;
             height: 200px;
             object-fit: cover;
         }
 
-        .project-info {
+        .blog-info {
             padding: 20px;
         }
 
-        .project-title {
+        .blog-title {
             font-size: 1.2em;
             color: #333;
             margin-bottom: 10px;
             font-weight: 600;
         }
 
-        .project-description {
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .blog-excerpt {
             color: #666;
             font-size: 0.9em;
             line-height: 1.6;
             margin-bottom: 15px;
         }
 
-        .project-tech {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 15px;
-        }
-
-        .tech-tag {
-            background: rgba(255, 59, 48, 0.1);
-            color: #FF3B30;
-            padding: 4px 10px;
-            border-radius: 15px;
-            font-size: 0.8em;
-            font-weight: 500;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 15px;
-        }
-
-        .project-link {
+        .read-more {
             color: #FF3B30;
             text-decoration: none;
             font-size: 0.9em;
@@ -214,7 +198,7 @@
             transition: color 0.3s ease;
         }
 
-        .project-link:hover {
+        .read-more:hover {
             color: #ff1f1f;
         }
 
@@ -317,71 +301,32 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="mentors.html">Mentors</a></li>
                 <li><a href="student.html">Students</a></li>
-                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="projects.html">Projects</a></li>
                 <li><a href="memories.html">Memories</a></li>
-                <li><a href="blog.html">Blog</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="projects-section">
-        <h1 class="section-title">Our Projects</h1>
-        <div class="projects-grid">
-            <div class="project-card">
-                <img src="busbars.jpg" alt="Churn Rate Predictor" class="project-image">
-                <div class="project-info">
-                    <h3 class="project-title">Churn Rate Predictor</h3>
-                    <p class="project-description">Predicts and prevent customer churn with advanced analytics. Gain insights to improve retention and boost business growth.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">MongoDB</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://churn-rate-predictor.onrender.com" class="project-link" target="_blank">
-                            Visit Website
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <img src="AI.jpg" alt="Ai interview model" class="project-image">
-                <div class="project-info">
-                    <h3 class="project-title">Ai interview model</h3>
-                    <p class="project-description">An intelligent platform that conducts mock interviews, evaluates responses, and provides real-time feedback. Enhance your interview skills with AI-driven insights.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Vue.js</span>
-                        <span class="tech-tag">Express</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://ai-mock-interview-henna.vercel.app/" class="project-link" target="_blank">
-                            Visit Website
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <img src="ttt.jpg" alt="TIC TAC TOE" class="project-image">
-                <div class="project-info">
-                    <h3 class="project-title">TIC TAC TOE </h3>
-                    <p class="project-description">A classic two-player game where you aim to align three X's or O's in a row—horizontally, vertically, or diagonally—to win. Play against a friend or an AI opponent.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Angular</span>
-                        <span class="tech-tag">Django</span>
-                        <span class="tech-tag">MySQL</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://tic-tac-toe-by.netlify.app/" class="project-link" target="_blank">
-                            Visit Website
-                        </a>
-                    </div>
-                </div>
-            </div>
-                  
+    <section class="blog-section">
+        <h1 class="section-title">Our Blog</h1>
+        <div class="blog-grid">
+            <!-- Blog posts will be added here -->
+        </div>
     </section>
+
+    <div class="container">
+        <h2 style="color: #FF3B30;">Create a Blog Post</h2>
+        <input type="text" id="name" placeholder="Your Name">
+        <textarea id="blogContent" placeholder="Write your blog here..." rows="5"></textarea>
+        <br>
+        <div class="file-input-container">
+            <label for="imageUpload" class="custom-file-upload">Upload Image</label>
+            <input type="file" id="imageUpload" accept="image/*">
+        </div>
+        <br>
+        <button onclick="postBlog()" class="btn">Post Blog</button>
+    </div>
 
     <footer class="site-footer">
         <div class="footer-container">
@@ -414,5 +359,141 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", loadBlogs);
+
+        function postBlog() {
+            let name = document.getElementById("name").value.trim();
+            let content = document.getElementById("blogContent").value.trim();
+            let imageInput = document.getElementById("imageUpload");
+
+            if (name === "" || content === "") {
+                alert("Please fill in all fields!");
+                return;
+            }
+
+            let now = new Date();
+            let formattedDate = now.toLocaleString();
+
+            let newBlog = { id: Date.now(), name, content, date: formattedDate, image: "" };
+
+            if (imageInput.files.length > 0) {
+                let reader = new FileReader();
+                reader.readAsDataURL(imageInput.files[0]);
+                reader.onload = function () {
+                    newBlog.image = reader.result;
+                    saveAndDisplayBlog(newBlog);
+                };
+            } else {
+                saveAndDisplayBlog(newBlog);
+            }
+
+            document.getElementById("name").value = "";
+            document.getElementById("blogContent").value = "";
+            document.getElementById("imageUpload").value = "";
+        }
+
+        function saveAndDisplayBlog(blog) {
+            let blogs = JSON.parse(localStorage.getItem("blogs")) || [];
+            blogs.unshift(blog);
+            localStorage.setItem("blogs", JSON.stringify(blogs));
+            displayBlog(blog);
+        }
+
+        function displayBlog(blog) {
+            let blogGrid = document.querySelector(".blog-grid");
+            let blogCard = document.createElement("div");
+            blogCard.classList.add("blog-card");
+
+            let blogImage = document.createElement("img");
+            blogImage.classList.add("blog-image");
+            blogImage.src = blog.image;
+
+            let blogInfo = document.createElement("div");
+            blogInfo.classList.add("blog-info");
+
+            let blogTitle = document.createElement("h3");
+            blogTitle.classList.add("blog-title");
+            blogTitle.textContent = blog.name;
+
+            let blogMeta = document.createElement("div");
+            blogMeta.classList.add("blog-meta");
+            let blogAuthor = document.createElement("span");
+            blogAuthor.textContent = "By " + blog.name;
+            let blogDate = document.createElement("span");
+            blogDate.textContent = blog.date;
+            blogMeta.appendChild(blogAuthor);
+            blogMeta.appendChild(blogDate);
+
+            let blogExcerpt = document.createElement("p");
+            blogExcerpt.classList.add("blog-excerpt");
+            blogExcerpt.textContent = blog.content;
+
+            let readMore = document.createElement("a");
+            readMore.classList.add("read-more");
+            readMore.textContent = "Read More →";
+            readMore.href = "#";
+
+            blogInfo.appendChild(blogTitle);
+            blogInfo.appendChild(blogMeta);
+            blogInfo.appendChild(blogExcerpt);
+            blogInfo.appendChild(readMore);
+
+            blogCard.appendChild(blogImage);
+            blogCard.appendChild(blogInfo);
+
+            blogGrid.appendChild(blogCard);
+        }
+
+        function loadBlogs() {
+            let blogs = JSON.parse(localStorage.getItem("blogs")) || [];
+            let blogGrid = document.querySelector(".blog-grid");
+
+            blogs.forEach(blog => {
+                let blogCard = document.createElement("div");
+                blogCard.classList.add("blog-card");
+
+                let blogImage = document.createElement("img");
+                blogImage.classList.add("blog-image");
+                blogImage.src = blog.image;
+
+                let blogInfo = document.createElement("div");
+                blogInfo.classList.add("blog-info");
+
+                let blogTitle = document.createElement("h3");
+                blogTitle.classList.add("blog-title");
+                blogTitle.textContent = blog.name;
+
+                let blogMeta = document.createElement("div");
+                blogMeta.classList.add("blog-meta");
+                let blogAuthor = document.createElement("span");
+                blogAuthor.textContent = "By " + blog.name;
+                let blogDate = document.createElement("span");
+                blogDate.textContent = blog.date;
+                blogMeta.appendChild(blogAuthor);
+                blogMeta.appendChild(blogDate);
+
+                let blogExcerpt = document.createElement("p");
+                blogExcerpt.classList.add("blog-excerpt");
+                blogExcerpt.textContent = blog.content;
+
+                let readMore = document.createElement("a");
+                readMore.classList.add("read-more");
+                readMore.textContent = "Read More →";
+                readMore.href = "#";
+
+                blogInfo.appendChild(blogTitle);
+                blogInfo.appendChild(blogMeta);
+                blogInfo.appendChild(blogExcerpt);
+                blogInfo.appendChild(readMore);
+
+                blogCard.appendChild(blogImage);
+                blogCard.appendChild(blogInfo);
+
+                blogGrid.appendChild(blogCard);
+            });
+        }
+    </script>
 </body>
 </html>

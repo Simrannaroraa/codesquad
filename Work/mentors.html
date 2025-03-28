@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mentors - Kalvium</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Mentors - Squad 80</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            color: white;
-            background-color: #000;
-            background-image: url('backgroundimg.jpg');
+            color: #333;
+            background-color: #fff;
+            background-image: url('Final%20bg.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -20,35 +21,14 @@
             padding-top: 80px;
             min-height: 100vh;
             overflow-x: hidden;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75));
-            z-index: -1;
-        }
-
-        body::after {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('backgroundimg.jpg') no-repeat center center/cover;
-            filter: blur(2px) brightness(0.5);
-            z-index: -2;
+            line-height: 1.6;
+            letter-spacing: -0.02em;
         }
 
         header {
-            background: rgba(0, 0, 0, 0.9);
+            background: #ffffff;
             padding: 0;
-            box-shadow: 0 0 10px red;
+            box-shadow: 0 5px 15px rgba(255, 59, 48, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
@@ -74,17 +54,13 @@
             font-weight: 700;
             font-family: 'Inter', sans-serif;
             color: #FF3B30;
+            text-decoration: none;
         }
 
         .logo img {
-            height: 30px;
+            height: 60px;
             width: auto;
-        }
-
-        .logo span {
-            color: #FF3B30;
-            font-weight: 500;
-            text-transform: uppercase;
+            margin: 10px;
         }
 
         .nav-links {
@@ -104,240 +80,409 @@
         }
 
         .nav-links a {
-            color: red;
+            color: #333;
             text-decoration: none;
             padding: 10px 15px;
-            transition: color 0.3s, text-shadow 0.3s;
+            transition: all 0.3s;
             font-weight: 500;
             height: 100%;
             display: flex;
             align-items: center;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #FF3B30;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
 
         .nav-links a:hover {
-            color: white;
-            text-shadow: 0 0 5px white;
+            color: #FF3B30;
         }
 
-        .mentor-section {
-            text-align: center;
-            padding: 40px 0;
-            position: relative;
-            min-height: calc(100vh - 80px);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
-        .mentor-section h1 {
-            font-size: 3.5em;
-            font-family: 'Orbitron', sans-serif;
-            text-shadow: 0 0 15px white;
-            color: white;
-            margin-bottom: 50px;
+        .nav-links a.active {
+            color: #ff1f1f;
         }
 
-        .mentor-cards {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* Main Content */
+        .main-content {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 40px auto;
             padding: 0 20px;
-            flex-grow: 1;
+        }
+
+        .page-title {
+            font-size: 3em;
+            font-weight: 800;
+            color: #333;
+            text-align: center;
+            margin-bottom: 50px;
+            letter-spacing: -0.02em;
+        }
+
+        /* Mentors Grid */
+        .mentors-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .mentor-card {
-            background: rgba(13, 17, 23, 0.8);
-            padding: 30px;
+            background: #ffffff;
             border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
-            width: 300px;
-            position: relative;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 0, 0, 0.3);
             overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 30px;
         }
 
         .mentor-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.7);
-            border-color: rgba(255, 0, 0, 0.7);
+            box-shadow: 0 15px 30px rgba(255, 59, 48, 0.15);
         }
 
-        .mentor-card img {
-            width: 120px;
-            height: 120px;
-            border-radius: 15px;
-            border: 2px solid rgba(255, 0, 0, 0.5);
-            margin-bottom: 15px;
-            transition: all 0.3s ease;
-            transform: scale(1);
-            object-fit: cover;
-        }
-
-        .mentor-card:hover img {
-            border-color: red;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
-            transform: scale(1.15);
-            border-radius: 5px;
-        }
-
-        .mentor-card h3 {
-            margin: 10px 0;
-            font-size: 1.8em;
-            color: white;
-        }
-
-        .mentor-card p.role {
-            color: #ff0000;
-            font-size: 1.2em;
-            margin: 5px 0 15px 0;
-            font-weight: 500;
-        }
-
-        .mentor-card p.description {
-            color: #ffffff;
-            font-size: 1em;
-            line-height: 1.5;
+        .mentor-image {
+            width: 100%;
+            height: 170px;
             margin: 0;
-            opacity: 0.8;
+            object-fit: cover;
+            object-position: center top;
+            transition: transform 0.5s ease;
+            border-radius: 15px 15px 0 0;
         }
 
-        .mentor-card .linkedin-info {
+        .mentor-card:hover .mentor-image {
+            transform: scale(1.1);
+        }
+
+        .mentor-info {
+            padding: 20px;
+            background: white;
+            position: relative;
+        }
+
+        .mentor-name {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .mentor-card:hover .mentor-name {
+            color: #FF3B30;
+        }
+
+        .mentor-role {
+            font-size: 1.1em;
+            color: #FF3B30;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .linkedin-info {
             position: absolute;
-            bottom: -100%;
+            bottom: 0;
             left: 0;
             width: 100%;
-            height: 40%;
-            background: #ff0000;
-            transition: all 0.3s ease;
+            padding: 15px;
+            background: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
+            gap: 15px;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: all 0.3s ease;
         }
 
         .mentor-card:hover .linkedin-info {
-            bottom: 0;
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        .mentor-card .linkedin-info a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
+        .linkedin-info img {
+            width: 25px;
+            transition: transform 0.3s ease;
+            filter: invert(36%) sepia(66%) saturate(7057%) hue-rotate(343deg) brightness(98%) contrast(126%);
         }
 
-        .mentor-card .linkedin-info img {
-            width: 40px;
-            height: 40px;
-            border: none;
+        .linkedin-info img:hover {
+            transform: scale(1.2);
+            filter: invert(36%) sepia(66%) saturate(7057%) hue-rotate(343deg) brightness(98%) contrast(126%);
+        }
+
+        .view-more {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #FF3B30;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .view-more:hover {
+            background: #ff1f1f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 59, 48, 0.2);
+        }
+
+        /* Footer Styles */
+        .site-footer {
+            background: #ffffff;
+            padding: 60px 0 20px;
+            margin-top: 100px;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section {
+            padding: 0 15px;
+        }
+
+        .footer-logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #FF3B30;
+            text-decoration: none;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .footer-section h4 {
+            color: #333;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
             margin: 0;
-            filter: brightness(0) invert(1);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .footer-section ul li {
+            margin-bottom: 10px;
         }
 
-        .mentor-card:hover .linkedin-info img {
-            animation: fadeIn 0.3s ease forwards;
+        .footer-section ul li a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #FF3B30;
+        }
+
+        .social-links-footer {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links-footer a {
+            color: #666;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        .social-links-footer a:hover {
+            color: #FF3B30;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-bottom p {
+            color: #666;
+            font-size: 0.9em;
+            margin: 0;
         }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">
+            <a href="ttttt.html" class="logo">
                 <img src="klogo.jpg" alt="Kalvium Logo">
-                <span>Kalvium</span>
-            </div>
+            </a>
             <ul class="nav-links">
                 <li><a href="ttttt.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="Mentors.html">Mentors</a></li>
+                <li><a href="mentors.html" class="active">Mentors</a></li>
                 <li><a href="student.html">Students</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="memories.html">Memories</a></li>
+                <li><a href="blog.html">Blog</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="mentor-section">
-        <h1>Our Mentors</h1>
-        <div class="mentor-cards">
+    <main class="main-content">
+        <h1 class="page-title">Our Mentors</h1>
+        
+        <div class="mentors-grid">
+            <!-- Mentor Card 1 -->
             <div class="mentor-card">
-                <img src="kanchan.jpg" alt="Kanchan Kumari">
-                <h3>Kanchan Kumari</h3>
-                <p class="role">Campus Manager</p>
-                <p class="description">Passionate about student growth, highly motivational and communicative.</p>
+                <img src="kanchan.jpg" alt="Kanchan Kumari" class="mentor-image" style="object-position: center 0;">
+                <div class="mentor-info">
+                    <h2 class="mentor-name">Kanchan Kumari</h2>
+                    <div class="mentor-role">Campus Manager</div>
+                </div>
                 <div class="linkedin-info">
                     <a href="https://www.linkedin.com/in/kanchan-kumari-151404250/" target="_blank">
                         <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
                     </a>
+                    <a href="mentor-profiles/kanchan.html" class="view-more">View More</a>
                 </div>
             </div>
+
+            <!-- Mentor Card 2 -->
             <div class="mentor-card">
-                <img src="manav.jpg" alt="Manav Verma">
-                <h3>Manav Verma</h3>
-                <p class="role">Technical Mentor</p>
-                <p class="description">Expert in guiding students through technical challenges and problem-solving.</p>
+                <img src="manav.jpg" alt="Manav Verma" class="mentor-image" style="object-position: center 0;">
+                <div class="mentor-info">
+                    <h2 class="mentor-name">Manav Verma</h2>
+                    <div class="mentor-role">Technical Mentor</div>
+                </div>
                 <div class="linkedin-info">
                     <a href="https://www.linkedin.com/in/manav-verma-414927188/" target="_blank">
                         <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
                     </a>
+                    <a href="mentor-profiles/manav.html" class="view-more">View More</a>
                 </div>
             </div>
+
+            <!-- Mentor Card 3 -->
             <div class="mentor-card">
-                <img src="aparna.jpg" alt="Aparna Tiwari" style="object-fit: cover; object-position: center;">
-                <h3>Aparna Tiwari</h3>
-                <p class="role">Technical Mentor</p>
-                <p class="description">Specializes in making complex concepts simple and accessible.</p>
+                <img src="aparna.jpg" alt="Aparna Tiwari" class="mentor-image" style="object-position: center 0;">
+                <div class="mentor-info">
+                    <h2 class="mentor-name">Aparna Tiwari</h2>
+                    <div class="mentor-role">Technical Mentor</div>
+                </div>
                 <div class="linkedin-info">
                     <a href="http://linkedin.com/in/aparna-tiwari-642038274/" target="_blank">
                         <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
                     </a>
+                    <a href="mentor-profiles/aparna.html" class="view-more">View More</a>
                 </div>
             </div>
+
+            <!-- Mentor Card 4 -->
             <div class="mentor-card">
-                <img src="junaid.jpg" alt="Junaid Khan">
-                <h3>Junaid Khan</h3>
-                <p class="role">Technical Mentor</p>
-                <p class="description">Brings practical industry experience to enhance learning outcomes.</p>
+                <img src="junaid.jpg" alt="Junaid Khan" class="mentor-image" style="object-position: center 30%;">
+                <div class="mentor-info">
+                    <h2 class="mentor-name">Junaid Khan</h2>
+                    <div class="mentor-role">Technical Mentor</div>
+                </div>
                 <div class="linkedin-info">
-                    <a href="https://www.linkedin.com/in/junaid-khan" target="_blank">
+                    <a href="https://www.linkedin.com/in/junaidify-Khan/?_l=en_US" target="_blank">
                         <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
                     </a>
+                    <a href="mentor-profiles/junaid.html" class="view-more">View More</a>
                 </div>
             </div>
+
+            <!-- Mentor Card 5 -->
             <div class="mentor-card">
-                <img src="rohith.jpg" alt="Rohith">
-                <h3>Rohith</h3>
-                <p class="role">Technical Mentor</p>
-                <p class="description">Focuses on building strong foundations in programming concepts.</p>
+                <img src="rohith.jpg" alt="Rohith" class="mentor-image" style="object-position: center 35%;">
+                <div class="mentor-info">
+                    <h2 class="mentor-name">Rohith</h2>
+                    <div class="mentor-role">Technical Mentor</div>
+                </div>
                 <div class="linkedin-info">
                     <a href="https://www.linkedin.com/in/rohith" target="_blank">
                         <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
                     </a>
+                    <a href="mentor-profiles/rohith.html" class="view-more">View More</a>
                 </div>
             </div>
+
+            <!-- Mentor Card 6 -->
             <div class="mentor-card">
-                <img src="khyati.jpg" alt="Khyati Sadana">
-                <h3>Khyati Sadana</h3>
-                <p class="role">Campus Manager</p>
-                <p class="description">Dynamic Program Manager with a proven track record</p>
+                <img src="khyati.jpg" alt="Khyati Sadana" class="mentor-image" style="object-position: center 25%;">
+                <div class="mentor-info">
+                    <h2 class="mentor-name">Khyati Sadana</h2>
+                    <div class="mentor-role">Campus Manager</div>
+                </div>
                 <div class="linkedin-info">
                     <a href="https://www.linkedin.com/in/khyati-sadana-9a4978290/" target="_blank">
                         <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
                     </a>
+                    <a href="mentor-profiles/khyati.html" class="view-more">View More</a>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="ttttt.html" class="footer-logo">Squad 80</a>
+                    <p>Empowering students through collaborative learning and project-based education.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="ttttt.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="mentors.html">Mentors</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links-footer">
+                        <a href="https://www.youtube.com/@Kalvium" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/kalvium_official?igshid=MWgwaHFzenlraXJreg==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/school/kalvium/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Squad 80. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

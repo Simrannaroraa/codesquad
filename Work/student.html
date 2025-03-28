@@ -11,9 +11,9 @@
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            color: white;
-            background-color: #000;
-            background-image: url('backgroundimg.jpg');
+            color: #333;
+            background-color: #fff;
+            background-image: url('Final%20bg.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -24,32 +24,17 @@
         }
 
         body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75));
-            z-index: -1;
+            display: none;
         }
 
         body::after {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('backgroundimg.jpg') no-repeat center center/cover;
-            filter: blur(2px) brightness(0.5);
-            z-index: -2;
+            display: none;
         }
 
         header {
-            background: rgba(0, 0, 0, 0.9);
+            background: #ffffff;
             padding: 0;
-            box-shadow: 0 0 10px red;
+            box-shadow: 0 5px 15px rgba(255, 59, 48, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
@@ -75,16 +60,13 @@
             font-weight: 700;
             font-family: 'Inter', sans-serif;
             color: #FF3B30;
+            text-decoration: none;
         }
 
         .logo img {
-            height: 30px;
+            height: 60px;
             width: auto;
-        }
-
-        .logo span {
-            color: #FF3B30;
-            font-weight: 500;
+            margin: 10px;
         }
 
         .nav-links {
@@ -104,28 +86,44 @@
         }
 
         .nav-links a {
-            color: #FF3B30;
+            color: #333;
             text-decoration: none;
             padding: 10px 15px;
-            transition: color 0.3s;
+            transition: all 0.3s;
             font-weight: 500;
             height: 100%;
             display: flex;
             align-items: center;
             font-family: 'Inter', sans-serif;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #FF3B30;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
 
         .nav-links a:hover {
-            color: white;
-            text-shadow: 0 0 5px white;
+            color: #FF3B30;
         }
 
-        .theme-toggle {
-            display: none;
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
-        body.light-mode {
-            display: none;
+        .nav-links a.active {
+            color: #ff1f1f;
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
         }
 
         .hero {
@@ -138,6 +136,20 @@
             justify-content: flex-start;
         }
 
+        .hero h1 {
+            font-size: 3.5em;
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: none;
+            color: #333;
+            margin-bottom: 50px;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            text-shadow: none;
+            color: #666;
+        }
+
         .hero::after {
             content: '';
             position: absolute;
@@ -146,20 +158,7 @@
             transform: translateX(-50%);
             width: 100px;
             height: 3px;
-            background: linear-gradient(90deg, transparent, red, transparent);
-        }
-
-        .hero h1 {
-            font-size: 3.5em;
-            font-family: 'Orbitron', sans-serif;
-            text-shadow: 0 0 15px white;
-            color: white;
-            margin-bottom: 50px;
-        }
-
-        .hero p {
-            font-size: 1.3em;
-            text-shadow: 0 0 10px white;
+            background: linear-gradient(90deg, transparent, #FF3B30, transparent);
         }
 
         .students-grid {
@@ -173,13 +172,13 @@
         }
 
         .student-card {
-            background: rgba(0, 0, 0, 0.8);
+            background: #ffffff;
             border-radius: 15px;
             padding: 0;
             text-align: center;
-            transition: all 0.5s ease;
-            border: 1px solid rgba(255, 0, 0, 0.3);
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
             width: 240px;
             height: 280px;
             margin: 0 auto;
@@ -189,6 +188,11 @@
             overflow: hidden;
         }
 
+        .student-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 59, 48, 0.15);
+        }
+
         .student-card::before {
             content: '';
             position: absolute;
@@ -196,10 +200,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(255, 0, 0, 0.1), transparent);
+            background: linear-gradient(45deg, transparent, rgba(255, 59, 48, 0.1), transparent);
             transform: translateX(-100%);
             transition: 0.5s;
-            z-index: 1;
         }
 
         .student-card:hover::before {
@@ -230,11 +233,11 @@
         }
 
         .student-card-front {
-            background: rgba(0, 0, 0, 0.8);
+            background: #ffffff;
         }
 
         .student-card-back {
-            background: rgba(0, 0, 0, 0.95);
+            background: #ffffff;
             transform: rotateY(180deg);
             display: flex;
             flex-direction: column;
@@ -242,7 +245,7 @@
             align-items: center;
             padding: 25px;
             box-sizing: border-box;
-            border: 1px solid rgba(255, 0, 0, 0.2);
+            border: 1px solid rgba(255, 59, 48, 0.2);
         }
 
         .student-image {
@@ -258,13 +261,10 @@
         }
 
         .student-name {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.3em;
-            color: #FF3B30;
-            margin-bottom: 20px;
-            text-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
-            letter-spacing: 1px;
-            text-align: center;
+            color: #333;
+            font-size: 1.2em;
+            font-weight: 600;
+            margin: 10px 0 5px;
         }
 
         .student-info {
@@ -280,15 +280,15 @@
 
         .social-links a {
             color: #FF3B30;
-            font-size: 1.3em;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.2em;
             transition: all 0.3s ease;
-            padding: 8px;
-            border-radius: 4px;
         }
 
         .social-links a:hover {
-            color: white;
-            background: rgba(255, 0, 0, 0.1);
+            color: #ff1f1f;
+            transform: translateY(-2px);
         }
 
         .view-more-btn {
@@ -330,22 +330,110 @@
         .video-container video {
             display: none;
         }
+
+        /* Footer Styles */
+        .site-footer {
+            background: #ffffff;
+            padding: 60px 0 20px;
+            margin-top: 100px;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section {
+            padding: 0 15px;
+        }
+
+        .footer-logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #FF3B30;
+            text-decoration: none;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .footer-section h4 {
+            color: #333;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #FF3B30;
+        }
+
+        .social-links-footer {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links-footer a {
+            color: #666;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        .social-links-footer a:hover {
+            color: #FF3B30;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-bottom p {
+            color: #666;
+            font-size: 0.9em;
+            margin: 0;
+        }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">
+            <a href="ttttt.html" class="logo">
                 <img src="klogo.jpg" alt="Kalvium Logo">
-                <span>KALVIUM</span>
-            </div>
+            </a>
             <ul class="nav-links">
                 <li><a href="ttttt.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="Mentors.html">Mentors</a></li>
-                <li><a href="student.html">Students</a></li>
+                <li><a href="mentors.html">Mentors</a></li>
+                <li><a href="student.html" class="active">Students</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="memories.html">Memories</a></li>
+                <li><a href="blog.html">Blog</a></li>
             </ul>
         </nav>
     </header>
@@ -361,7 +449,7 @@
                     <div class="student-card-back">
                         <h2 class="student-name">Simran Arora</h2>
                         <div class="social-links">
-                            <a href="https://www.linkedin.com/in/simran-arora-3495b7333?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://www.linkedin.com/search/results/all/?fetchDeterministicClustersOnly=true&heroEntityKey=urn%3Ali%3Afsd_profile%3AACoAAFPqmCkBTcL8N8BKeS9b5yRPaeowBBDh3wA&keywords=simran%20arora&origin=RICH_QUERY_TYPEAHEAD_HISTORY&position=0&searchId=73a50bb3-73d4-4883-9930-81ea6ef65960&sid=oD!&spellCorrectionEnabled=true" target="_blank"><i class="fab fa-linkedin"></i></a>
                             <a href="https://github.com/Simrannaroraa" target="_blank"><i class="fab fa-github"></i></a>
                         </div>
                         <a href="student-profiles/simran.html" class="view-more-btn">View More</a>
@@ -401,7 +489,7 @@
             <div class="student-card">
                 <div class="student-card-inner">
                     <div class="student-card-front">
-                        <img src="yen.jpg" alt="Yen" class="student-image">
+                        <img src="yen profile.jpg" alt="Yen" class="student-image">
                     </div>
                     <div class="student-card-back">
                         <h2 class="student-name">Yen Wadhwa</h2>
@@ -431,7 +519,7 @@
             <div class="student-card" onclick="window.location.href='student-profiles/mukund.html'">
                 <div class="student-card-inner">
                     <div class="student-card-front">
-                        <img src="mukund.jpg" alt="Mukund" class="student-image">
+                        <img src="mukund profile.jpg" alt="Mukund" class="student-image">
                     </div>
                     <div class="student-card-back">
                         <h2 class="student-name">Mukund Bansal</h2>
@@ -476,7 +564,7 @@
             <div class="student-card">
                 <div class="student-card-inner">
                     <div class="student-card-front">
-                        <img src="tannish.jpg" alt="Tannish Garg" class="student-image">
+                        <img src="tannish profile.jpg" alt="Tannish Garg" class="student-image">
                     </div>
                     <div class="student-card-back">
                         <h2 class="student-name">Tannish Garg</h2>
@@ -506,7 +594,7 @@
             <div class="student-card">
                 <div class="student-card-inner">
                     <div class="student-card-front">
-                        <img src="vikram kochar.jpg" alt="Vikram Kochar" class="student-image">
+                        <img src="vikram k profile.jpg" alt="Vikram Kochar" class="student-image">
                     </div>
                     <div class="student-card-back">
                         <h2 class="student-name">Vikram Kochar</h2>
@@ -596,7 +684,7 @@
             <div class="student-card">
                 <div class="student-card-inner">
                     <div class="student-card-front">
-                        <img src="vikram r.jpg" alt="Vikram Rehni" class="student-image">
+                        <img src="vikram profile.jpg" alt="Vikram Rehni" class="student-image">
                     </div>
                     <div class="student-card-back">
                         <h2 class="student-name">Vikram Rehni</h2>
@@ -656,7 +744,7 @@
             <div class="student-card">
                 <div class="student-card-inner">
                     <div class="student-card-front">
-                        <img src="kapish.jpg" alt="Kapish" class="student-image">
+                        <img src="kapish profile.jpg" alt="Kapish" class="student-image">
                     </div>
                     <div class="student-card-back">
                         <h2 class="student-name">Kapish Garg</h2>
@@ -715,5 +803,36 @@
             </div>
         </div>
     </section>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="ttttt.html" class="footer-logo">Squad 80</a>
+                    <p>Empowering students through collaborative learning and project-based education.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="ttttt.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="mentors.html">Mentors</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links-footer">
+                        <a href="https://www.youtube.com/@Kalvium" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/squad80official" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/squad80" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Squad 80. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
-</html> 
+</html>

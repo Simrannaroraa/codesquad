@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Kalvium</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>About - Squad 80</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            color: white;
-            background-color: #000;
-            background-image: url('backgroundimg.jpg');
+            color: #333;
+            background-color: #fff;
+            background-image: url('Final%20bg.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -23,33 +29,10 @@
             overflow-x: hidden;
         }
 
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75));
-            z-index: -1;
-        }
-
-        body::after {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('backgroundimg.jpg') no-repeat center center/cover;
-            filter: blur(2px) brightness(0.5);
-            z-index: -2;
-        }
-
         header {
-            background: rgba(0, 0, 0, 0.9);
+            background: #ffffff;
             padding: 0;
-            box-shadow: 0 0 10px red;
+            box-shadow: 0 5px 15px rgba(255, 59, 48, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
@@ -75,16 +58,13 @@
             font-weight: 700;
             font-family: 'Inter', sans-serif;
             color: #FF3B30;
+            text-decoration: none;
         }
 
         .logo img {
-            height: 30px;
+            height: 60px;
             width: auto;
-        }
-
-        .logo span {
-            color: #FF3B30;
-            font-weight: 500;
+            margin-right: 10px;
         }
 
         .nav-links {
@@ -104,166 +84,73 @@
         }
 
         .nav-links a {
-            color: #FF3B30;
+            color: #333;
             text-decoration: none;
             padding: 10px 15px;
-            transition: color 0.3s;
+            transition: all 0.3s;
             font-weight: 500;
             height: 100%;
             display: flex;
             align-items: center;
             font-family: 'Inter', sans-serif;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: #FF3B30;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .nav-links a:hover {
-            color: white;
-            text-shadow: 0 0 5px white;
+            color: #FF3B30;
         }
 
         .about-section {
             text-align: center;
-            padding: 40px 0;
+            padding: 20px 0;
             position: relative;
             min-height: calc(100vh - 80px);
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-        }
-
-        .section-title {
-            font-size: 3.5em;
-            font-family: 'Orbitron', sans-serif;
-            text-shadow: 0 0 15px white;
-            color: white;
-            margin-bottom: 50px;
-            text-align: center;
-        }
-
-        .kalvium-info-box {
-            background: none;
-            border-radius: 15px;
-            padding: 40px;
-            margin: 0 auto 100px;
-            max-width: 1000px;
-            border: 2px solid rgba(255, 59, 48, 0.6);
-            box-shadow: 0 0 30px rgba(255, 59, 48, 0.4);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .kalvium-info-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('kal.jpg') center/cover;
-            opacity: 0.7;
-            z-index: 0;
-            transition: opacity 0.3s ease;
-            filter: brightness(0.95) contrast(0.95) blur(1px);
-        }
-
-        .kalvium-info-box:hover::before {
-            opacity: 0.8;
-            filter: brightness(1) contrast(1) blur(0.5px);
-        }
-
-        .kalvium-info-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 40px rgba(255, 59, 48, 0.5);
-        }
-
-        .kalvium-info-content {
-            position: relative;
-            z-index: 1;
-            background: none;
-            padding: 30px;
-            border-radius: 12px;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-        .kalvium-info-title {
+        .section-title {
             font-size: 2.5em;
-            color: #FF3B30;
-            margin-bottom: 30px;
+            color: #333;
+            margin-bottom: 150px;
+            text-align: center;
             font-family: 'Orbitron', sans-serif;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-align: center;
         }
 
-        .kalvium-info-text {
+        .about-section p {
+            color: #666;
             font-size: 1.2em;
-            line-height: 1.8;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-            margin-bottom: 25px;
-            font-weight: 500;
-            letter-spacing: 0.3px;
-            position: relative;
-            padding: 0 20px;
-        }
-
-        .kalvium-highlights {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 25px;
-            margin-top: 40px;
-            position: relative;
-            padding: 0 20px;
-        }
-
-        .highlight-item {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            line-height: 1.6;
             text-align: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            flex: 1;
-            min-width: 220px;
-            border: 1px solid rgba(255, 59, 48, 0.4);
-            box-shadow: 0 0 15px rgba(255, 59, 48, 0.2);
-            backdrop-filter: blur(3px);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .highlight-item:hover {
-            transform: translateY(-3px);
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 0 20px rgba(255, 59, 48, 0.3);
-        }
-
-        .highlight-item h3 {
-            color: #FF3B30;
-            margin-bottom: 10px;
-            font-size: 1.3em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .highlight-item p {
-            color: white;
-            font-size: 1.1em;
-            margin: 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            font-weight: 500;
-            letter-spacing: 0.2px;
         }
 
         .creators-section {
             margin-bottom: 100px;
+            margin-top: 100px;
+        }
+
+        .creators-section .section-title {
+            margin-bottom: 80px;
         }
 
         .creators-container {
@@ -293,40 +180,36 @@
             }
         }
 
-        .creator-card {
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 10px;
-            padding: 0;
-            text-align: center;
-            border: 1px solid rgba(255, 0, 0, 0.3);
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            max-width: 350px;
-            margin: 0 auto;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .creator-card:hover,
-        .creator-card.touch-active {
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
-            border-color: rgba(255, 0, 0, 0.7);
-        }
-
         .creator-image {
             width: 100%;
             height: 200px;
-            border-radius: 10px 10px 0 0;
+            border-radius: 15px 15px 0 0;
             margin: 0;
             border: none;
             padding: 0;
-            background: rgba(255, 0, 0, 0.2);
             object-fit: cover;
         }
 
+        .creator-card {
+            background: #ffffff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            padding: 0;
+            max-width: 350px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .creator-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 59, 48, 0.15);
+        }
+
         .creator-name {
-            color: red;
+            color: #333;
             font-size: 1.4em;
             margin-top: 15px;
             margin-bottom: 8px;
@@ -336,16 +219,16 @@
         }
 
         .creator-role {
-            color: #ccc;
+            color: #FF3B30;
             font-size: 1.1em;
             margin-bottom: 10px;
             padding: 0 20px;
         }
 
         .creator-description {
-            color: #999;
-            line-height: 1.5;
+            color: #666;
             font-size: 0.9em;
+            line-height: 1.5;
             margin-bottom: 15px;
             padding: 0 20px;
         }
@@ -356,314 +239,324 @@
         }
 
         .social-links a {
-            color: red;
+            color: #FF3B30;
             margin: 0 10px;
             font-size: 1.2em;
             transition: all 0.3s ease;
         }
 
         .social-links a:hover {
-            color: white;
-            text-shadow: 0 0 10px white;
+            color: #FF3B30;
         }
 
         .vision-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
-            margin: 0 auto 60px;
-            padding: 0 20px;
-        }
-
-        .vision-card {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 25px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 0, 0, 0.2);
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .vision-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
-            border-color: rgba(255, 0, 0, 0.4);
-        }
-
-        .vision-card i {
-            font-size: 2em;
-            color: #FF3B30;
-            margin-bottom: 15px;
-        }
-
-        .vision-card h3 {
-            font-size: 1.6em;
-            color: white;
-            margin-bottom: 12px;
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        .vision-card p {
-            color: #ccc;
-            line-height: 1.5;
-            font-size: 0.95em;
-        }
-
-        .journey-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 500px;
+            position: relative;
             margin: 60px auto;
             max-width: 1200px;
-            padding: 0 20px;
+            padding: 40px;
         }
 
-        .timeline {
-            position: relative;
+        .vision-central {
+            background: #ffffff;
+            border: 2px solid rgba(255, 59, 48, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            width: 370px;
+            height: 370px;
+            border-radius: 50%;
             display: flex;
-            gap: 30px;
-            padding: 20px 0;
             justify-content: center;
-            flex-wrap: wrap;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            margin-top: -50px;
         }
 
-        .timeline::before {
-            content: '';
+        .vision-central:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 59, 48, 0.4);
+        }
+
+        .vision-central h2 {
+            color: #FF3B30;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5em;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(255, 59, 48, 0.5);
+        }
+
+        .vision-circle {
+            background: #ffffff;
+            border: 2px solid rgba(255, 59, 48, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
             position: absolute;
-            top: 50%;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: rgba(255, 0, 0, 0.2);
-            transform: translateY(-50%);
-        }
-
-        .timeline-item {
-            position: relative;
-            width: 220px;
-            flex-shrink: 0;
-        }
-
-        .timeline-content {
-            position: relative;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 8px;
-            border: 1px solid rgba(255, 0, 0, 0.2);
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            min-height: 100px;
+            width: 300px;
+            height: 230px;
+            border-radius: 50%;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
+            z-index: 1;
+            padding: 30px;
             text-align: center;
         }
 
-        .timeline-content:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+        .vision-circle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255, 59, 48, 0.4);
+            z-index: 3;
         }
 
-        .timeline-content::before {
+        .vision-circle i {
+            font-size: 3em;
+            color: #FF3B30;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(255, 59, 48, 0.5);
+        }
+
+        .vision-circle h3 {
+            color: #333;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4em;
+            margin: 0;
+            text-align: center;
+        }
+
+        .vision-circle p {
+            color: #666;
+            font-size: 1.1em;
+            text-align: center;
+            margin: 15px 20px 0;
+            line-height: 1.5;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            pointer-events: none;
+        }
+
+        .vision-circle:hover p {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+
+        .vision-circle:hover i,
+        .vision-circle:hover h3 {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        .vision-circle i,
+        .vision-circle h3 {
+            transition: all 0.3s ease;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Special styling for Essence circle */
+        .vision-circle:first-child {
+            padding: 30px;
+        }
+
+        .vision-circle:first-child p {
+            opacity: 0;
+            transform: translate(-50%, -30%);
+            pointer-events: none;
+        }
+
+        .vision-circle:first-child:hover p {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+
+        .vision-circle:first-child i,
+        .vision-circle:first-child h3 {
+            transform: translateY(0);
+        }
+
+        .vision-connector {
+            position: absolute;
+            background: linear-gradient(45deg, rgba(255, 59, 48, 0.2), rgba(255, 59, 48, 0.4));
+            height: 2px;
+            width: 150px;
+            z-index: 1;
+        }
+
+        .vision-connector::before {
             content: '';
             position: absolute;
-            top: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 12px;
-            height: 12px;
-            background: #FF3B30;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 59, 48, 0.5), transparent);
+            animation: glow 2s linear infinite;
         }
 
-        .timeline-content h3 {
-            color: #FF3B30;
-            margin-bottom: 8px;
-            font-size: 1.2em;
-            font-family: 'Orbitron', sans-serif;
+        @keyframes glow {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
 
-        .timeline-content p {
-            color: #ccc;
-            line-height: 1.4;
-            font-size: 0.9em;
-            margin: 0;
+        @media (max-width: 768px) {
+            .vision-container {
+                flex-direction: column;
+                min-height: auto;
+                padding: 20px;
+            }
+
+            .vision-central {
+                margin-bottom: 40px;
+            }
+
+            .vision-circle {
+                position: relative;
+                margin: 20px 0;
+            }
+
+            .vision-connector {
+                display: none;
+            }
         }
 
-        .footer-links-section {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 60px 0 40px;
-            margin-top: 60px;
-            border-top: 1px solid rgba(255, 59, 48, 0.3);
+        /* Add footer styles */
+        .site-footer {
+            background: #ffffff;
+            padding: 60px 0 20px;
+            margin-top: 100px;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
         }
 
         .footer-container {
             max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
             padding: 0 20px;
         }
 
-        .footer-column {
-            color: white;
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
-        .footer-column h3 {
+        .footer-section {
+            padding: 0 15px;
+        }
+
+        .footer-logo {
+            font-size: 1.8em;
+            font-weight: 700;
             color: #FF3B30;
+            text-decoration: none;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .footer-section h4 {
+            color: #333;
             font-size: 1.2em;
             margin-bottom: 20px;
             font-weight: 600;
-            font-family: 'Inter', sans-serif;
         }
 
-        .footer-column p {
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.6;
-            font-size: 0.9em;
-            margin: 0;
-        }
-
-        .footer-column ul {
+        .footer-section ul {
             list-style: none;
             padding: 0;
             margin: 0;
         }
 
-        .footer-column ul li {
+        .footer-section ul li {
             margin-bottom: 10px;
         }
 
-        .footer-column ul li a {
-            color: rgba(255, 255, 255, 0.8);
+        .footer-section ul li a {
+            color: #666;
             text-decoration: none;
-            font-size: 0.9em;
-            transition: all 0.3s ease;
+            transition: color 0.3s;
         }
 
-        .footer-column ul li a:hover {
+        .footer-section ul li a:hover {
             color: #FF3B30;
-            padding-left: 5px;
         }
 
-        .footer-contact {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 59, 48, 0.3);
-            text-align: center;
-        }
-
-        .footer-contact p {
-            color: rgba(255, 255, 255, 0.8);
-            margin: 5px 0;
-            font-size: 0.9em;
-        }
-
-        .footer-social {
-            margin-top: 15px;
+        .social-links-footer {
             display: flex;
-            justify-content: center;
-            gap: 20px;
+            gap: 15px;
         }
 
-        .footer-social a {
+        .social-links-footer a {
+            color: #666;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        .social-links-footer a:hover {
             color: #FF3B30;
-            font-size: 1.5em;
-            transition: all 0.3s ease;
         }
 
-        .footer-social a:hover {
-            color: white;
-            transform: translateY(-3px);
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
         }
 
-        @media (max-width: 768px) {
-            .footer-container {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 30px;
-            }
+        .footer-bottom p {
+            color: #666;
+            font-size: 0.9em;
+            margin: 0;
         }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.creator-card');
-            
-            cards.forEach(card => {
-                card.addEventListener('touchstart', function() {
-                    this.classList.add('touch-active');
-                });
-                
-                card.addEventListener('touchend', function() {
-                    this.classList.remove('touch-active');
-                });
-            });
-        });
-    </script>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">
+            <a href="ttttt.html" class="logo">
                 <img src="klogo.jpg" alt="Kalvium Logo">
-                <span>KALVIUM</span>
-            </div>
+            </a>
             <ul class="nav-links">
                 <li><a href="ttttt.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="Mentors.html">Mentors</a></li>
+                <li><a href="mentors.html">Mentors</a></li>
                 <li><a href="student.html">Students</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="memories.html">Memories</a></li>
+                <li><a href="blog.html">Blog</a></li>
             </ul>
         </nav>
     </header>
 
     <section class="about-section">
         <h1 class="section-title">About Us</h1>
-        
-        <div class="kalvium-info-box">
-            <div class="kalvium-info-content">
-                <p class="kalvium-info-text">
-                    Kalvium is a revolutionary learning platform that transforms tech education through immersive, industry-relevant programs. We combine cutting-edge curriculum with hands-on projects and mentorship to create future-ready tech professionals.
-                </p>
-                <p class="kalvium-info-text">
-                    Our mission is to bridge the gap between traditional education and industry requirements, ensuring our students are equipped with the latest skills and practical experience needed in today's fast-paced tech world.
-                </p>
-                <p class="kalvium-info-text">
-                    At Kalvium, we believe in learning by doing. Our unique approach combines theoretical knowledge with practical implementation, allowing students to work on real-world projects while learning. Through our innovative curriculum, students master not just coding, but also problem-solving, collaboration, and professional development skills.
-                </p>
-                
+        <div class="vision-container">
+            <div class="vision-circle" style="top: -130px; left: 50%; transform: translateX(-50%);">
+                <i class="fas fa-heart"></i>
+                <h3>Essence</h3>
+                <p>Squad 80 is a team of passionate developers, designers, and innovators dedicated to creating cutting-edge technology solutions. We thrive on collaboration, creativity, and problem-solving.</p>
             </div>
-        </div>
-
-        <div class="journey-section">
-            <h1 class="section-title">Our Journey</h1>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>The Beginning</h3>
-                        <p>Founded with a vision to transform tech education in India.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>First Cohort</h3>
-                        <p>Successfully launched our first batch with industry-aligned curriculum.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Expansion</h3>
-                        <p>Expanded to multiple cities and partnered with leading tech companies.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Global Reach</h3>
-                        <p>Expanded internationally and launched new initiatives.</p>
-                    </div>
-                </div>
+            <div class="vision-central">
+                <h2>SQUAD 80</h2>
+            </div>
+            <div class="vision-circle" style="bottom: -95px; left: 50%; transform: translateX(-50%);">
+                <i class="fas fa-bullseye"></i>
+                <h3>Mission</h3>
+                <p>To push the boundaries of technology and innovation, empowering individuals and businesses with impactful solutions.</p>
+            </div>
+            <div class="vision-circle" style="top: 50%; right: -200px; transform: translateY(-50%);">
+                <i class="fas fa-eye"></i>
+                <h3>Vision</h3>
+                <p>To become a leading force in the world of tech-driven transformation, setting new standards in software development.</p>
+            </div>
+            <div class="vision-circle" style="top: 50%; left: -200px; transform: translateY(-50%);">
+                <i class="fas fa-star"></i>
+                <h3>Values</h3>
+                <p>Innovation, Excellence, Integrity, and Student Success are the cornerstones of our educational philosophy.</p>
             </div>
         </div>
 
@@ -673,66 +566,48 @@
                 <div class="creator-card">
                     <img src="cs.jpg" alt="Creator 5" class="creator-image">
                     <h3 class="creator-name">Chhavi</h3>
-                    <p class="creator-role">Home Page</p>
-                    <p class="creator-description">designing home page</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/chhavi"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/chhavi"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 <div class="creator-card">
                     <img src="sa.jpg" alt="Creator 4" class="creator-image">
                     <h3 class="creator-name">Simran Arora</h3>
-                    <p class="creator-role">Mentors Page</p>
-                    <p class="creator-description">designing the mentors page</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/search/results/all/?fetchDeterministicClustersOnly=true&heroEntityKey=urn%3Ali%3Afsd_profile%3AACoAAFPqmCkBTcL8N8BKeS9b5yRPaeowBBDh3wA&keywords=simran%20arora&origin=RICH_QUERY_TYPEAHEAD_HISTORY&position=0&searchId=73a50bb3-73d4-4883-9930-81ea6ef65960&sid=oD!&spellCorrectionEnabled=true"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/Simrannaroraa"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 <div class="creator-card">
                     <img src="akk.jpg" alt="Creator 3" class="creator-image">
                     <h3 class="creator-name">Akhil Khatri</h3>
-                    <p class="creator-role">Git Hub</p>
-                    <p class="creator-description">Pushing files to git hub</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/akhil-khatri-79a84530b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/akhil"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 <div class="creator-card">
                     <img src="xv.jpg" alt="Creator 2" class="creator-image">
                     <h3 class="creator-name">Xiena Vij</h3>
-                    <p class="creator-role">About Page</p>
-                    <p class="creator-description">designing the about page</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/xiena-vij-343846333?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/xiena-vij"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 <div class="creator-card">
                     <img src="ak1.jpg" alt="Creator 1" class="creator-image">
                     <h3 class="creator-name">Anika Kaushik</h3>
-                    <p class="creator-role">Student page</p>
-                    <p class="creator-description">designing the student page</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/anika-kaushik-14b1012a8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/Anikakaushik"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 <div class="creator-card">
                     <img src="ym.jpg" alt="Creator 6" class="creator-image">
                     <h3 class="creator-name">Yugveer</h3>
-                    <p class="creator-role">Contact Page</p>
-                    <p class="creator-description">designing the contact page</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
@@ -740,49 +615,36 @@
         </div>
     </section>
 
-    <section class="footer-links-section">
+    <footer class="site-footer">
         <div class="footer-container">
-            <div class="footer-column">
-                <h3>Contact Us</h3>
-                <p>Email: contactus@kalvium.com</p>
-                <p>Mobile: +91 9483 200 300</p>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="index.html" class="footer-logo">Squad 80</a>
+                    <p>Empowering students through collaborative learning and project-based education.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="mentors.html">Mentors</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links-footer">
+                        <a href="https://www.youtube.com/@Kalvium" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/kalvium_official?igshid=MWgwaHFzenlraXJreg==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/school/kalvium/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
                 </div>
             </div>
-            
-            <div class="footer-column">
-                <h3>Bangalore Office</h3>
-                <p>Kalvium, 403, 22nd Cross Rd, Parangi Palaya, BDA Layout, HSR Layout, Bengaluru, Karnataka 560034</p>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Coimbatore Office</h3>
-                <p>SNS Kalvi Nagar, Sathy Main Road (NH-209) Vazhiyampalayam, Saravanampatti Post Coimbatore – 641035, Tamil Nadu, IN.</p>
-            </div>
-
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#">About us</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms and Conditions</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
-                <h3>Programs</h3>
-                <ul>
-                    <li><a href="#">Software Product Engineering</a></li>
-                    <li><a href="#">AI & Future Technologies</a></li>
-                    <li><a href="#">Get Prospectus</a></li>
-                    <li><a href="#">Student Fee Portal</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Squad 80. All rights reserved.</p>
             </div>
         </div>
-    </section>
+    </footer>
 </body>
 </html>
