@@ -11,8 +11,12 @@
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            color: white;
-            background-color: #000;
+            color: #333;
+            background-color: #fff;
+            background-image: url('../Final%20bg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             position: relative;
             padding-top: 80px;
             min-height: 100vh;
@@ -20,9 +24,9 @@
         }
 
         header {
-            background: rgba(0, 0, 0, 0.9);
+            background: #ffffff;
             padding: 0;
-            box-shadow: 0 0 10px #FF3B30;
+            box-shadow: 0 5px 15px rgba(255, 59, 48, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
@@ -99,6 +103,12 @@
             padding: 0 40px;
             gap: 80px;
             align-items: flex-start;
+            animation: zoomOut 0.8s ease-out;
+            transform-origin: center;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            padding: 30px;
         }
 
         .profile-left {
@@ -122,10 +132,9 @@
 
         .profile-name {
             font-size: 2.8em;
-            color: white;
+            color: #333;
             margin: 0 0 10px;
             font-family: 'Orbitron', sans-serif;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
         }
 
         .profile-email {
@@ -155,7 +164,7 @@
         }
 
         .section {
-            background: rgba(20, 20, 20, 0.8);
+            background: #ffffff;
             border-radius: 12px;
             padding: 25px;
             margin-bottom: 25px;
@@ -165,15 +174,14 @@
 
         .section-title {
             font-size: 1.6em;
-            color: #FF3B30;
+            color: #333;
             margin-bottom: 20px;
             font-family: 'Orbitron', sans-serif;
-            text-shadow: 0 0 5px rgba(255, 59, 48, 0.2);
         }
 
         .section-content {
             line-height: 1.6;
-            color: #ccc;
+            color: #666;
             font-size: 1.1em;
         }
 
@@ -185,11 +193,12 @@
         }
 
         .achievement-card, .certification-card {
-            background: rgba(30, 30, 30, 0.9);
+            background: #ffffff;
             padding: 20px;
             border-radius: 8px;
             border: 1px solid rgba(255, 59, 48, 0.1);
             transition: all 0.3s ease;
+            position: relative;
         }
 
         .achievement-card:hover, .certification-card:hover {
@@ -199,13 +208,13 @@
         }
 
         .achievement-title, .certification-title {
-            color: white;
+            color: #333;
             font-size: 1.2em;
             margin-bottom: 10px;
         }
 
         .achievement-description, .certification-date {
-            color: #ccc;
+            color: #666;
             font-size: 0.9em;
         }
 
@@ -257,6 +266,59 @@
                 height: 300px;
             }
         }
+
+        .certification-card:hover::after {
+            transform: rotate(60deg) scale(1.1);
+        }
+
+        .certification-title {
+            padding-right: 30px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+        }
+
+        .modal-content {
+            position: relative;
+            margin: auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .modal-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255, 59, 48, 0.3);
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 25px;
+            top: 10px;
+            color: #FF3B30;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -296,37 +358,18 @@
             </div>
 
             <div class="section">
-                <h2 class="section-title">Certifications</h2>
-                <div class="certifications-grid">
-                    <div class="certification-card">
-                        <h3 class="certification-title">Web Development Fundamentals</h3>
-                        <p class="certification-date">Completed: August 2024</p>
-                    </div>
-                    <div class="certification-card">
-                        <h3 class="certification-title">JavaScript Advanced Concepts</h3>
-                        <p class="certification-date">Completed: October 2024</p>
-                    </div>
-                    <div class="certification-card">
-                        <h3 class="certification-title">React.js Essential Training</h3>
-                        <p class="certification-date">Completed: December 2024</p>
-                    </div>
+                <h2 class="section-title">Skills</h2>
+                <div class="section-content">
+                    <p>Javascript, React.js, CSS, HTML</p>
                 </div>
             </div>
 
             <div class="section">
-                <h2 class="section-title">Achievements</h2>
-                <div class="achievements-grid">
-                    <div class="achievement-card">
-                        <h3 class="achievement-title">Hackathon Winner</h3>
-                        <p class="achievement-description">First place in Kalvium's 24-hour hackathon</p>
-                    </div>
-                    <div class="achievement-card">
-                        <h3 class="achievement-title">Best Project</h3>
-                        <p class="achievement-description">Awarded for outstanding project implementation</p>
-                    </div>
-                    <div class="achievement-card">
-                        <h3 class="achievement-title">Top Performer</h3>
-                        <p class="achievement-description">Consistently high performance in coursework</p>
+                <h2 class="section-title">Certifications</h2>
+                <div class="certifications-grid">
+                    <div class="certification-card" onclick="openModal('../shreya ai.jpg')" style="cursor: pointer;">
+                        <h3 class="certification-title">Underestimated AI Workshop</h3>
+                        <p class="certification-date">February 12, 2025</p>
                     </div>
                 </div>
             </div>
@@ -334,5 +377,35 @@
     </div>
 
     <a href="../student.html" class="back-button">Back to Students</a>
+
+    <!-- Modal -->
+    <div id="certModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <img id="modalImage" class="modal-image" src="" alt="Certificate">
+        </div>
+    </div>
+
+    <script>
+        function openModal(imageSrc) {
+            const modal = document.getElementById('certModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = "block";
+            modalImg.src = imageSrc;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('certModal');
+            modal.style.display = "none";
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('certModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html> 

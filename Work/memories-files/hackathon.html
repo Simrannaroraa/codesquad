@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon - Squad 80</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #fff;
+            background-image: url('Final%20bg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            padding-top: 80px;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #ffffff;
+            padding: 0;
+            box-shadow: 0 5px 15px rgba(255, 59, 48, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: 80px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 2.5em;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            color: #FF3B30;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            margin: 10px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: all 0.3s;
+            font-weight: 500;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #FF3B30;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover {
+            color: #FF3B30;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: #FF3B30;
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .site-footer {
+            background: #ffffff;
+            padding: 60px 0 20px;
+            margin-top: 100px;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section {
+            padding: 0 15px;
+        }
+
+        .footer-logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #FF3B30;
+            text-decoration: none;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .footer-section h4 {
+            color: #333;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #FF3B30;
+        }
+
+        .social-links-footer {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links-footer a {
+            color: #666;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        .social-links-footer a:hover {
+            color: #FF3B30;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-bottom p {
+            color: #666;
+            font-size: 0.9em;
+            margin: 0;
+        }
+
+        /* Main content styles */
+        .main-content {
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 0 20px;
+        }
+
+        /* Back button styles */
+        .back-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #FF3B30;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(255, 59, 48, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 59, 48, 0.4);
+            background-color: #ff1a1a;
+        }
+
+        .back-button i {
+            font-size: 1.1em;
+        }
+
+        /* Image collage styles */
+        .image-grid {
+            max-width: 850px;
+            margin: 50px auto;
+            padding: 20px;
+            position: relative;
+            height: 650px;
+        }
+
+        .image-holder {
+            position: absolute;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            background: #fff;
+            width: 250px;
+            height: 160px;
+            z-index: 1;
+        }
+
+        /* Positioning for each image - Messy collage */
+        .image-holder:nth-child(1) {
+            top: 10px;
+            left: 20px;
+            transform: rotate(-5deg);
+        }
+
+        .image-holder:nth-child(2) {
+            top: 0;
+            left: 240px;
+            transform: rotate(3deg);
+        }
+
+        .image-holder:nth-child(3) {
+            top: 15px;
+            left: 480px;
+            transform: rotate(-2deg);
+        }
+
+        .image-holder:nth-child(4) {
+            top: 150px;
+            left: -10px;
+            transform: rotate(4deg);
+        }
+
+        .image-holder:nth-child(5) {
+            top: 140px;
+            left: 230px;
+            transform: rotate(-3deg);
+        }
+
+        .image-holder:nth-child(6) {
+            top: 160px;
+            left: 490px;
+            transform: rotate(2deg);
+        }
+
+        .image-holder:nth-child(7) {
+            top: 310px;
+            left: 10px;
+            transform: rotate(-4deg);
+        }
+
+        .image-holder:nth-child(8) {
+            top: 300px;
+            left: 260px;
+            transform: rotate(5deg);
+        }
+
+        .image-holder:nth-child(9) {
+            top: 320px;
+            left: 470px;
+            transform: rotate(-2deg);
+        }
+
+        .image-holder:nth-child(10) {
+            top: 470px;
+            left: 115px;
+            transform: rotate(3deg);
+        }
+
+        .image-holder:nth-child(11) {
+            top: 460px;
+            left: 365px;
+            transform: rotate(-3deg);
+        }
+
+        .image-holder:hover {
+            transform: scale(1.8) rotate(0deg) !important;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            z-index: 100;
+        }
+
+        .image-holder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.4s ease;
+        }
+
+        .grid-intro {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin: 30px auto;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="ttttt.html" class="logo">
+                <img src="klogo.jpg" alt="Kalvium Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="ttttt.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="mentors.html">Mentors</a></li>
+                <li><a href="student.html">Students</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="memories.html">Memories</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <p class="grid-intro">Relive our exciting hackathon moments and innovative solutions!</p>
+        
+        <div class="image-grid">
+            <div class="image-holder">
+                <img src="j1.jpg" alt="Team Brainstorming">
+            </div>
+            <div class="image-holder">
+                <img src="j2.jpg" alt="Coding Session">
+            </div>
+            <div class="image-holder">
+                <img src="j3.jpg" alt="Project Presentation">
+            </div>
+            <div class="image-holder">
+                <img src="j4.jpg" alt="Team Discussion">
+            </div>
+            <div class="image-holder">
+                <img src="j5.jpg" alt="Problem Solving">
+            </div>
+            <div class="image-holder">
+                <img src="j6.jpg" alt="Late Night Coding">
+            </div>
+            <div class="image-holder">
+                <img src="j7.jpg" alt="Mentoring Session">
+            </div>
+            <div class="image-holder">
+                <img src="j8.jpg" alt="Winners Announcement">
+            </div>
+            <div class="image-holder">
+                <img src="j9.jpg" alt="Prize Distribution">
+            </div>
+            <div class="image-holder">
+                <img src="j10.jpg" alt="Group Photo">
+            </div>
+            <div class="image-holder">
+                <img src="j11.jpg" alt="Celebration">
+            </div>
+        </div>
+    </main>
+
+    <a href="memories.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        Back to Memories
+    </a>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="ttttt.html" class="footer-logo">Squad 80</a>
+                    <p>Empowering students through collaborative learning and project-based education.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="ttttt.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="mentors.html">Mentors</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links-footer">
+                        <a href="https://www.youtube.com/@Kalvium" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/kalvium_official?igshid=MWgwaHFzenlraXJreg==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/school/kalvium/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Squad 80. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

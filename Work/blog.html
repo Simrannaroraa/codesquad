@@ -15,15 +15,11 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
             background-color: #fff;
             background-image: url('Final%20bg.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            position: relative;
             padding-top: 80px;
             min-height: 100vh;
             overflow-x: hidden;
@@ -31,13 +27,12 @@
 
         header {
             background: #ffffff;
-            padding: 0;
-            box-shadow: 0 5px 15px rgba(255, 59, 48, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             height: 80px;
+            box-shadow: 0 5px 15px rgba(255, 59, 48, 0.1);
         }
 
         nav {
@@ -56,7 +51,6 @@
             gap: 10px;
             font-size: 2.5em;
             font-weight: 700;
-            font-family: 'Inter', sans-serif;
             color: #FF3B30;
             text-decoration: none;
         }
@@ -71,57 +65,22 @@
             list-style: none;
             display: flex;
             align-items: center;
-            margin: 0;
-            padding: 0;
-            height: 100%;
         }
 
         .nav-links li {
             margin-left: 30px;
-            height: 100%;
-            display: flex;
-            align-items: center;
         }
 
         .nav-links a {
             color: #333;
             text-decoration: none;
             padding: 10px 15px;
-            transition: all 0.3s;
             font-weight: 500;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            font-family: 'Inter', sans-serif;
-            position: relative;
+            transition: all 0.3s;
         }
 
         .nav-links a:hover {
             color: #FF3B30;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: #FF3B30;
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a.active {
-            color: #ff1f1f;
-        }
-
-        .nav-links a.active::after {
-            width: 100%;
         }
 
         .blog-section {
@@ -133,16 +92,15 @@
         .section-title {
             font-size: 2.5em;
             color: #333;
-            margin-bottom: 40px;
             text-align: center;
             font-family: 'Orbitron', sans-serif;
+            margin-bottom: 40px;
         }
 
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            padding: 20px 0;
         }
 
         .blog-card {
@@ -150,12 +108,13 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            transition: transform 0.3s;
+            padding-bottom: 50px;
         }
 
         .blog-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(255, 59, 48, 0.15);
         }
 
         .blog-image {
@@ -168,125 +127,56 @@
             padding: 20px;
         }
 
-        .blog-title {
-            font-size: 1.2em;
-            color: #333;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
         .blog-meta {
-            display: flex;
-            justify-content: space-between;
             color: #666;
             font-size: 0.9em;
-            margin-bottom: 15px;
-        }
-
-        .blog-excerpt {
-            color: #666;
-            font-size: 0.9em;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .read-more {
-            color: #FF3B30;
-            text-decoration: none;
-            font-size: 0.9em;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .read-more:hover {
-            color: #ff1f1f;
-        }
-
-        .site-footer {
-            background: #ffffff;
-            padding: 60px 0 20px;
-            margin-top: 100px;
-            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-section {
-            padding: 0 15px;
-        }
-
-        .footer-logo {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: #FF3B30;
-            text-decoration: none;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
-
-        .footer-section h4 {
-            color: #333;
-            font-size: 1.2em;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .footer-section ul li {
             margin-bottom: 10px;
         }
 
-        .footer-section ul li a {
-            color: #666;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-section ul li a:hover {
-            color: #FF3B30;
-        }
-
-        .social-links-footer {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-links-footer a {
-            color: #666;
-            font-size: 1.2em;
-            transition: color 0.3s;
-        }
-
-        .social-links-footer a:hover {
-            color: #FF3B30;
-        }
-
-        .footer-bottom {
+        .container {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
+            margin: 40px auto;
+            max-width: 600px;
         }
 
-        .footer-bottom p {
-            color: #666;
-            font-size: 0.9em;
-            margin: 0;
+        .container input, .container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn {
+            background: #FF3B30;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #ff1f1f;
+        }
+
+        .btn-delete {
+            background: #FF3B30;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            transition: background 0.3s;
+        }
+
+        .btn-delete:hover {
+            background: #D32F2F;
         }
     </style>
 </head>
@@ -303,62 +193,23 @@
                 <li><a href="student.html">Students</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="memories.html">Memories</a></li>
-                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="blog.html">Blog</a></li>
             </ul>
         </nav>
     </header>
 
     <section class="blog-section">
         <h1 class="section-title">Our Blog</h1>
-        <div class="blog-grid">
-            <!-- Blog posts will be added here -->
-        </div>
+        <div class="blog-grid"></div>
     </section>
 
     <div class="container">
-        <h2 style="color: #FF3B30;">Create a Blog Post</h2>
+        <h2>Create a Blog Post</h2>
         <input type="text" id="name" placeholder="Your Name">
         <textarea id="blogContent" placeholder="Write your blog here..." rows="5"></textarea>
-        <br>
-        <div class="file-input-container">
-            <label for="imageUpload" class="custom-file-upload">Upload Image</label>
-            <input type="file" id="imageUpload" accept="image/*">
-        </div>
-        <br>
+        <input type="file" id="imageUpload" accept="image/*">
         <button onclick="postBlog()" class="btn">Post Blog</button>
     </div>
-
-    <footer class="site-footer">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <a href="ttttt.html" class="footer-logo">Squad 80</a>
-                    <p>Empowering students through collaborative learning and project-based education.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="ttttt.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="mentors.html">Mentors</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Connect</h4>
-                    <div class="social-links-footer">
-                        <a href="https://www.youtube.com/@Kalvium" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.instagram.com/kalvium_official?igshid=MWgwaHFzenlraXJreg==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/school/kalvium/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Squad 80. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
 
     <script>
         document.addEventListener("DOMContentLoaded", loadBlogs);
@@ -368,30 +219,24 @@
             let content = document.getElementById("blogContent").value.trim();
             let imageInput = document.getElementById("imageUpload");
 
-            if (name === "" || content === "") {
+            if (!name || !content) {
                 alert("Please fill in all fields!");
                 return;
             }
 
-            let now = new Date();
-            let formattedDate = now.toLocaleString();
-
-            let newBlog = { id: Date.now(), name, content, date: formattedDate, image: "" };
+            let now = new Date().toLocaleString();
+            let newBlog = { id: Date.now(), name, content, date: now, image: "" };
 
             if (imageInput.files.length > 0) {
                 let reader = new FileReader();
-                reader.readAsDataURL(imageInput.files[0]);
                 reader.onload = function () {
                     newBlog.image = reader.result;
                     saveAndDisplayBlog(newBlog);
                 };
+                reader.readAsDataURL(imageInput.files[0]);
             } else {
                 saveAndDisplayBlog(newBlog);
             }
-
-            document.getElementById("name").value = "";
-            document.getElementById("blogContent").value = "";
-            document.getElementById("imageUpload").value = "";
         }
 
         function saveAndDisplayBlog(blog) {
@@ -402,97 +247,42 @@
         }
 
         function displayBlog(blog) {
-            let blogGrid = document.querySelector(".blog-grid");
-            let blogCard = document.createElement("div");
-            blogCard.classList.add("blog-card");
+        let blogGrid = document.querySelector(".blog-grid");
+        let blogCard = document.createElement("div");
+        blogCard.classList.add("blog-card");
 
-            let blogImage = document.createElement("img");
-            blogImage.classList.add("blog-image");
-            blogImage.src = blog.image;
+        blogCard.innerHTML = `
+            ${blog.image ? `<img class='blog-image' src='${blog.image}' alt='Blog Image'>` : ""}
+            <div class='blog-info'>
+                <h3>${blog.name}</h3>
+                <p>${blog.content}</p>
+                <button class="btn-delete" onclick="deleteBlog(${blog.id})">Delete</button>
+            </div>
+        `;
 
-            let blogInfo = document.createElement("div");
-            blogInfo.classList.add("blog-info");
+        blogGrid.appendChild(blogCard);
+    }
 
-            let blogTitle = document.createElement("h3");
-            blogTitle.classList.add("blog-title");
-            blogTitle.textContent = blog.name;
+    function deleteBlog(blogId) {
+        let blogs = JSON.parse(localStorage.getItem("blogs")) || [];
+        let updatedBlogs = blogs.filter(blog => blog.id !== blogId);
+        localStorage.setItem("blogs", JSON.stringify(updatedBlogs));
 
-            let blogMeta = document.createElement("div");
-            blogMeta.classList.add("blog-meta");
-            let blogAuthor = document.createElement("span");
-            blogAuthor.textContent = "By " + blog.name;
-            let blogDate = document.createElement("span");
-            blogDate.textContent = blog.date;
-            blogMeta.appendChild(blogAuthor);
-            blogMeta.appendChild(blogDate);
+        // Refresh the displayed blogs
+        document.querySelector(".blog-grid").innerHTML = "";
+        loadBlogs();
+    }
 
-            let blogExcerpt = document.createElement("p");
-            blogExcerpt.classList.add("blog-excerpt");
-            blogExcerpt.textContent = blog.content;
-
-            let readMore = document.createElement("a");
-            readMore.classList.add("read-more");
-            readMore.textContent = "Read More →";
-            readMore.href = "#";
-
-            blogInfo.appendChild(blogTitle);
-            blogInfo.appendChild(blogMeta);
-            blogInfo.appendChild(blogExcerpt);
-            blogInfo.appendChild(readMore);
-
-            blogCard.appendChild(blogImage);
-            blogCard.appendChild(blogInfo);
-
-            blogGrid.appendChild(blogCard);
-        }
-
-        function loadBlogs() {
-            let blogs = JSON.parse(localStorage.getItem("blogs")) || [];
-            let blogGrid = document.querySelector(".blog-grid");
-
-            blogs.forEach(blog => {
-                let blogCard = document.createElement("div");
-                blogCard.classList.add("blog-card");
-
-                let blogImage = document.createElement("img");
-                blogImage.classList.add("blog-image");
-                blogImage.src = blog.image;
-
-                let blogInfo = document.createElement("div");
-                blogInfo.classList.add("blog-info");
-
-                let blogTitle = document.createElement("h3");
-                blogTitle.classList.add("blog-title");
-                blogTitle.textContent = blog.name;
-
-                let blogMeta = document.createElement("div");
-                blogMeta.classList.add("blog-meta");
-                let blogAuthor = document.createElement("span");
-                blogAuthor.textContent = "By " + blog.name;
-                let blogDate = document.createElement("span");
-                blogDate.textContent = blog.date;
-                blogMeta.appendChild(blogAuthor);
-                blogMeta.appendChild(blogDate);
-
-                let blogExcerpt = document.createElement("p");
-                blogExcerpt.classList.add("blog-excerpt");
-                blogExcerpt.textContent = blog.content;
-
-                let readMore = document.createElement("a");
-                readMore.classList.add("read-more");
-                readMore.textContent = "Read More →";
-                readMore.href = "#";
-
-                blogInfo.appendChild(blogTitle);
-                blogInfo.appendChild(blogMeta);
-                blogInfo.appendChild(blogExcerpt);
-                blogInfo.appendChild(readMore);
-
-                blogCard.appendChild(blogImage);
-                blogCard.appendChild(blogInfo);
-
-                blogGrid.appendChild(blogCard);
-            });
+    function loadBlogs() {
+            try {
+                let blogs = JSON.parse(localStorage.getItem("blogs") || "[]");
+                const blogGrid = document.querySelector(".blog-grid");
+                blogGrid.innerHTML = ""; // Clear existing blogs
+                blogs.forEach(displayBlog);
+            } catch (error) {
+                showError("Error loading blog posts");
+                console.error("Error:", error);
+            }
         }
     </script>
 </body>

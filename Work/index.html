@@ -4,24 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Squad 80</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"> <!-- Font Awesome -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            color: white;
-            background-image: url('backgroundimg.jpg');
+            color: #333;
+            background-color: #fff;
+            background-image: url('../bg.svg');
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
             background-attachment: fixed;
+            position: relative;
+            padding-top: 80px;
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+            letter-spacing: -0.02em;
+        }
+
+        body::before {
+            display: none;
+        }
+
+        body::after {
+            display: none;
         }
 
         header {
-            background: rgba(0, 0, 0, 0.9);
-            padding: 20px 0;
-            box-shadow: 0 0 10px red;
+            background: #ffffff;
+            padding: 0;
+            box-shadow: 0 5px 15px rgba(255, 59, 48, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: 80px;
         }
 
         nav {
@@ -31,212 +52,580 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            height: 100%;
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-size: 2.5em;
             font-weight: 700;
-            font-family: 'Orbitron', sans-serif;
-            color: red;
-            text-shadow: 0 0 10px red;
-            animation: glitch 0.5s infinite alternate;
+            font-family: 'Inter', sans-serif;
+            color: #FF3B30;
+            text-decoration: none;
         }
 
-        @keyframes glitch {
-            0% { text-shadow: 2px 2px 5px red; }
-            100% { text-shadow: -2px -2px 5px red; }
+        .logo img {
+            height: 60px;
+            width: auto;
+            margin: 10px;
         }
 
         .nav-links {
             list-style: none;
             display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            height: 100%;
         }
 
         .nav-links li {
             margin-left: 30px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
         }
 
         .nav-links a {
-            color: red;
+            color: #333;
             text-decoration: none;
             padding: 10px 15px;
-            transition: color 0.3s, text-shadow 0.3s;
+            transition: all 0.3s;
             font-weight: 500;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: #FF3B30;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .nav-links a:hover {
-            color: white;
-            text-shadow: 0 0 5px white;
+            color: #FF3B30;
         }
 
-        /* Social Links - Vertical Styling */
-        .social-links {
-            position: fixed;
-            top: 20%;
-            right: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px red;
+        .nav-links a.active {
+            color: #FF3B30;
         }
 
-        .social-links a {
-            color: red;
-            font-size: 1.8em;
-            transition: color 0.3s, transform 0.3s;
-            text-align: center;
+        .nav-links a.active::after {
+            width: 100%;
         }
 
-        .social-links a:hover {
-            color: white;
-            transform: scale(1.2);
-            text-shadow: 0 0 5px white;
-        }
-
+        /* Hero Section */
         .hero {
             text-align: center;
-            padding: 200px 0;
+            padding: 20px 0;
+            position: relative;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 100px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .hero h1 {
-            font-size: 3.5em;
-            font-family: 'Orbitron', sans-serif;
-            text-shadow: 0 0 15px white;
+            font-size: 3em;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 20px;
+            line-height: 1;
+            color: #333;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
         }
 
         .hero p {
-            font-size: 1.3em;
-            text-shadow: 0 0 10px white;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            line-height: 1.4;
+            color: #555;
+            font-weight: 500;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: -0.01em;
         }
 
         .btn {
-            background-color: white;
-            color: #000;
-            padding: 14px 30px;
+            background-color: #FF3B30;
+            color: white;
+            padding: 12px 30px;
             text-decoration: none;
-            border-radius: 6px;
-            border: 2px solid white;
-            text-shadow: 0 0 10px white;
-            transition: all 0.3s ease-in-out;
-            font-size: 1.1em;
-            font-weight: 600;
-            box-shadow: 0 0 15px white;
-            display: inline-block;
+            border-radius: 8px;
+            border: none;
+            transition: all 0.3s ease;
+            font-size: 1em;
+            font-weight: 700;
+            letter-spacing: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
         }
 
         .btn:hover {
-            background-color: #000;
-            color: white;
-            box-shadow: 0 0 25px white;
+            background-color: #E6352B;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(255, 59, 48, 0.2);
         }
 
         /* Empower Your Knowledge Section */
         .knowledge-section {
+            display: none;
+        }
+
+        /* Features Section */
+        .features {
             display: flex;
             justify-content: center;
+            gap: 30px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 300px auto 60px;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 24px;
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
             align-items: center;
-            padding: 100px 20px;
-            background: black;
-            text-align: left;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            background: rgba(255, 59, 48, 0.1);
+            border: 2px solid #FF3B30;
+            color: #FF3B30;
+            margin: 0 auto 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5em;
+            margin: 0 0 15px 0;
+            color: #FF3B30;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .feature-card p {
+            color: #555;
+            line-height: 1.6;
+            text-align: center;
+            font-size: 0.95em;
+            font-weight: 400;
+        }
+
+        /* Stats Section Styles */
+        .stats-section {
+            padding: 40px 0;
+            background: #fff;
         }
 
         .stats-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            padding: 0 20px;
         }
 
-        .stats-box {
-            background-color: red;
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff4b4b 0%, #ff6b6b 100%);
+            box-shadow: 0 10px 20px rgba(255, 75, 75, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 75, 75, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 1em;
+            font-weight: 500;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .stats-container {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .stat-item {
+                width: 150px;
+                height: 150px;
+            }
+
+            .stat-number {
+                font-size: 2em;
+            }
+
+            .stat-label {
+                font-size: 0.9em;
+            }
+        }
+
+        
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .nav-button {
+            background: none;
+            border: 2px solid #FF3B30;
+            color: #FF3B30;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background: #FF3B30;
             color: white;
-            padding: 30px;
-            border-radius: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-card {
+                min-width: 300px;
+            }
+        }
+        
+
+        /* Cursor Animation */
+        #hero-text::after {
+            content: '|';
+            animation: blink 1.5s infinite;
+            font-weight: 100;
+            color: #333;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+
+        /* Add footer styles */
+        footer {
             text-align: center;
-            font-weight: bold;
-            font-size: 18px;
-            box-shadow: 0 0 15px red;
+            padding: 40px 20px;
+            background: #ffffff;
+            border-top: 1px solid #eee;
+            margin-top: 50px;
         }
 
-        .knowledge-text {
-            margin-left: 40px;
-            max-width: 400px;
+        .copyright {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 15px;
+            letter-spacing: 0.01em;
         }
 
-        .knowledge-text h2 {
-            font-size: 2em;
-            font-weight: bold;
+        .proudly-learning {
+            font-size: 1.1em;
+            color: #333;
+            font-weight: 600;
+            letter-spacing: -0.01em;
         }
 
-        .knowledge-text p {
-            line-height: 1.5;
+        .proudly-learning span {
+            color: #FF3B30;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+        }
+
+        /* Remove Social Links CSS */
+        .social-links {
+            display: none;
+        }
+
+        .social-links a {
+            display: none;
+        }
+
+        .social-links a:hover {
+            display: none;
+        }
+
+        /* Remove floating icons CSS */
+        .floating-icons {
+            display: none;
+        }
+
+        .floating-icon {
+            display: none;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            100% {
+                transform: translate(100px, 100px) rotate(360deg);
+            }
+        }
+          
+              
+        /* Footer Styles */
+        .site-footer {
+            background: #ffffff;
+            padding: 60px 0 20px;
+            margin-top: 100px;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section {
+            padding: 0 15px;
+        }
+
+        .footer-logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #FF3B30;
+            text-decoration: none;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .footer-section h4 {
+            color: #333;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #FF3B30;
+        }
+
+        .social-links-footer {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links-footer a {
+            color: #666;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        .social-links-footer a:hover {
+            color: #FF3B30;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-bottom p {
+            color: #666;
+            font-size: 0.9em;
+            margin: 0;
         }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">Squad 80</div>
+            <a href="index.html" class="logo">
+                <img src="klogo.jpg" alt="Kalvium Logo">
+            </a>
             <ul class="nav-links">
-<<<<<<< HEAD
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-=======
                 <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="mentors.html">Mentors</a></li>
-                <li><a href="#students">Students</a></li>
-                <li><a href="#recognition">Recognition</a></li>
-                <li><a href="Contact.html">Contact</a></li>
->>>>>>> 2ec7e86e2251ac5591dce4a7ac49e4186e614f2c
+                <li><a href="student.html">Students</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="memories.html">Memories</a></li>
+                <li><a href="blog.html">Blog</a></li>
             </ul>
         </nav>
     </header>
-
-    <!-- Vertical Social Icons -->
-    <div class="social-links">
-        <a href="https://www.instagram.com/kalvium_official/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://x.com/kalvium_edu" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-        <a href="https://www.youtube.com/channel/UCg6n0KpFmhje8kjjBOCRtGg" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-    </div>
 
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Welcome to Squad 80</h1>
             <p id="hero-text"></p>
-            <a href="#about" class="btn">Explore</a>
+            <a href="about.html" class="btn">Explore</a>
         </div>
     </section>
+                
 
-    <!-- Empower Your Knowledge Section -->
-    <section class="knowledge-section">
-        <div class="stats-container">
-            <div class="stats-box">24<br>Team Members</div>
-            <div class="stats-box">2+<br>Hackathons</div>
-            <div class="stats-box">890+<br>Career Development</div>
-            <div class="stats-box">100%<br>Passion</div>
-        </div>
-        <div class="knowledge-text">
-            <h2>EMPOWER YOUR KNOWLEDGE</h2>
-            <p>Whether you're looking to further your career or pursue a passion, we have the resources and expertise to support your journey.</p>
-        </div>
-    </section>
+                <footer class="site-footer">
+                    <div class="footer-container">
+                        <div class="footer-content">
+                            <div class="footer-section">
+                                <a href="index.html" class="footer-logo">Squad 80</a>
+                                <p>Empowering students through collaborative learning and project-based education.</p>
+                            </div>
+                            <div class="footer-section">
+                                <h4>Quick Links</h4>
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="projects.html">Projects</a></li>
+                                    <li><a href="blog.html">Blog</a></li>
+                                    <li><a href="mentors.html">Mentors</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-section">
+                                <h4>Connect</h4>
+                                <div class="social-links-footer">
+                                    <a href="https://www.youtube.com/@Kalvium" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                                    <a href="https://www.instagram.com/kalvium_official?igshid=MWgwaHFzenlraXJreg==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                                    <a href="https://www.linkedin.com/school/kalvium/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-bottom">
+                            <p>&copy; 2025 Squad 80. All rights reserved.</p>
+                        </div>
+                    </div>
+                </footer>
+ 
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const text = "Education Meets Industry";
+            const text = "Where Education Meets Industry.";
             let i = 0;
+            const heroText = document.getElementById("hero-text");
+            
             function typeWriter() {
                 if (i < text.length) {
-                    document.getElementById("hero-text").innerHTML += text.charAt(i);
+                    heroText.textContent = text.substring(0, i + 1);
                     i++;
-                    setTimeout(typeWriter, 100);
+                    setTimeout(typeWriter, 150);
                 }
             }
             typeWriter();
+
+            // Add scroll-based movement for social links
+            const socialLinks = document.querySelector('.social-links');
+            let lastScrollTop = 0;
+            
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const windowHeight = window.innerHeight;
+                const documentHeight = document.documentElement.scrollHeight;
+                
+                // Calculate the scroll percentage (0 to 1)
+                const scrollPercent = scrollTop / (documentHeight - windowHeight);
+                
+                // Calculate the new position (start at 20% of viewport height, end at 80%)
+                const minTop = windowHeight * 0.2;
+                const maxTop = windowHeight * 0.8;
+                const newTop = minTop + (maxTop - minTop) * scrollPercent;
+                
+                socialLinks.style.top = `${newTop}px`;
+                lastScrollTop = scrollTop;
+            });
         });
     </script>
 </body>

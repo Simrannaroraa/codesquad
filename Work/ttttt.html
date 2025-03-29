@@ -134,13 +134,13 @@
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 20px 0;
+            padding: 0;
             position: relative;
             min-height: calc(100vh - 80px);
             display: flex;
             flex-direction: column;
             justify-content: center;
-            margin-bottom: 100px;
+            margin-bottom: 0;
         }
 
         .hero-content {
@@ -186,7 +186,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 40px;
+            margin-bottom: 0;
             text-transform: uppercase;
         }
 
@@ -345,6 +345,65 @@
             50% { opacity: 0; }
         }
 
+        /* Typewriter Cursor Effect */
+        .typewriter-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2em;
+            background-color: #333;
+            margin-left: 2px;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+            position: relative;
+        }
+
+        .typewriter-cursor::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #333;
+            animation: glow 2s infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .typewriter-text {
+            display: inline-block;
+            position: relative;
+        }
+
+        .typewriter-text.typing .typewriter-cursor {
+            animation: blink 1s infinite, shift 0.1s ease-in-out;
+        }
+
+        @keyframes shift {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(1px); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Input Field Cursor */
+        input:focus {
+            caret-color: #FF3B30;
+        }
+
+        input:focus::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FF3B30, transparent);
+            animation: glow 2s infinite;
+        }
+
         /* Footer Styles */
         .site-footer {
             background: #ffffff;
@@ -361,13 +420,31 @@
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
             margin-bottom: 40px;
+            align-items: start;
         }
 
         .footer-section {
-            padding: 0 15px;
+            padding: 0;
+        }
+
+        .footer-section h4 {
+            color: #333;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            margin-top: 0;
+        }
+
+        .footer-section h4:not(.footer-logo + p + h4) {
+            margin-top: 0;
+        }
+
+        .footer-section .footer-logo + p + h4 {
+            margin-top: 50px;
         }
 
         .footer-logo {
@@ -377,13 +454,14 @@
             text-decoration: none;
             margin-bottom: 15px;
             display: inline-block;
+            font-family: 'Inter', sans-serif;
         }
 
-        .footer-section h4 {
-            color: #333;
-            font-size: 1.2em;
+        .footer-section p {
+            color: #666;
+            font-size: 1em;
+            line-height: 1.6;
             margin-bottom: 20px;
-            font-weight: 600;
         }
 
         .footer-section ul {
@@ -393,27 +471,68 @@
         }
 
         .footer-section ul li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .footer-section ul li a {
             color: #666;
             text-decoration: none;
             transition: color 0.3s;
+            font-size: 1em;
+            font-weight: 400;
         }
 
-        .footer-section ul li a:hover {
-            color: #FF3B30;
+        .footer-section.contact-section {
+            padding: 0;
+            margin-top: -20px;
+        }
+
+        .footer-section.contact-section .contact-container {
+            max-width: 100%;
+            padding: 0;
+            background: none;
+            box-shadow: none;
+        }
+
+        .footer-section.contact-section .form-group {
+            margin-bottom: 12px;
+        }
+
+        .footer-section.contact-section .form-group input,
+        .footer-section.contact-section .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .footer-section.contact-section .form-group textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        .footer-section.contact-section .submit-btn {
+            width: 100%;
+            padding: 10px;
+            background: #FF3B30;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.9em;
+            cursor: pointer;
+            margin-top: 8px;
         }
 
         .social-links-footer {
             display: flex;
             gap: 15px;
+            margin-top: 15px;
         }
 
         .social-links-footer a {
             color: #666;
-            font-size: 1.2em;
+            font-size: 1.5em;
             transition: color 0.3s;
         }
 
@@ -427,10 +546,29 @@
             border-top: 1px solid #eee;
         }
 
-        .footer-bottom p {
-            color: #666;
-            font-size: 0.9em;
-            margin: 0;
+        @media (max-width: 992px) {
+            .footer-content {
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .footer-section {
+                text-align: center;
+            }
+            
+            .social-links-footer {
+                justify-content: center;
+            }
+            
+            .footer-section ul {
+                text-align: center;
+            }
         }
 
         /* Remove Social Links CSS */
@@ -463,6 +601,447 @@
                 transform: translate(100px, 100px) rotate(360deg);
             }
         }
+
+        /* Contact Section Styles */
+        .contact-section {
+            padding: 80px 0;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .animated-box {
+            background: #ffffff;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 10px 30px rgba(255, 59, 48, 0.15),
+                0 20px 60px rgba(255, 59, 48, 0.1),
+                0 0 100px rgba(255, 59, 48, 0.05),
+                inset 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        .animated-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid #FF3B30;
+            border-radius: 15px;
+            animation: borderGlow 2s infinite;
+            pointer-events: none;
+        }
+
+        .animated-box::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            background: radial-gradient(
+                circle at center,
+                rgba(255, 59, 48, 0.1) 0%,
+                rgba(255, 59, 48, 0) 70%
+            );
+            animation: pulseGlow 3s ease-in-out infinite;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                transform: scale(0.95);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { 
+                opacity: 0.5;
+                box-shadow: 
+                    0 0 20px rgba(255, 59, 48, 0.2),
+                    0 0 40px rgba(255, 59, 48, 0.1),
+                    0 0 60px rgba(255, 59, 48, 0.05);
+            }
+            50% { 
+                opacity: 1;
+                box-shadow: 
+                    0 0 30px rgba(255, 59, 48, 0.3),
+                    0 0 50px rgba(255, 59, 48, 0.2),
+                    0 0 70px rgba(255, 59, 48, 0.1);
+            }
+        }
+
+        .title-container {
+            margin-bottom: 20px;
+        }
+
+        .contact-title {
+            font-size: 3em;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 20px;
+            line-height: 1;
+            color: #333;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+        }
+
+        .subtitle-container {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .contact-subtitle {
+            font-size: 1.2em;
+            line-height: 1.4;
+            color: #555;
+            font-weight: 500;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.01em;
+        }
+
+        .contact-subtitle::after {
+            content: '|';
+            display: inline-block;
+            margin-left: 2px;
+            animation: blink 1.5s infinite;
+            font-weight: 100;
+            color: #333;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Contact Form Styles */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 40px;
+            width: 100%;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .form-group {
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(255, 59, 48, 0.2);
+            border-radius: 8px;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            background: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        .form-group:hover {
+            transform: translateY(-3px) translateZ(5px);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #FF3B30;
+            outline: none;
+            box-shadow: 
+                0 0 15px rgba(255, 59, 48, 0.15),
+                0 0 25px rgba(255, 59, 48, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .form-group:hover input,
+        .form-group:hover textarea {
+            border-color: #FF3B30;
+            box-shadow: 
+                0 4px 8px rgba(255, 59, 48, 0.1),
+                0 0 15px rgba(255, 59, 48, 0.1);
+        }
+
+        /* Enhanced Submit Button */
+        .submit-btn {
+            background: linear-gradient(45deg, #FF3B30, #ff6b6b);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(255, 59, 48, 0.2);
+            position: relative;
+            overflow: hidden;
+            width: auto;
+            min-width: 200px;
+            align-self: center;
+        }
+
+        /* 3D Container Effect */
+        .animated-box {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            background: rgba(255, 255, 255, 0.98);
+        }
+
+        .animated-box::before {
+            box-shadow: 
+                0 0 20px rgba(255, 59, 48, 0.15),
+                0 0 40px rgba(255, 59, 48, 0.1);
+        }
+
+        /* Statistics Bubbles Styles */
+        .statistics-bubbles {
+            padding: 0;
+            margin-top: -80px;
+            margin-bottom: 60px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bubbles-container {
+            max-width: 1200px;
+            height: 800px;
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .stat-bubble {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255, 59, 48, 0.85);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            z-index: 2;
+            transition: all 0.3s ease-out;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+        }
+
+        .stat-bubble:hover {
+            transform: scale(1.15);
+            box-shadow: 0 0 40px rgba(255, 59, 48, 0.3);
+            background: rgba(255, 59, 48, 0.95);
+            z-index: 3;
+        }
+
+        .stat-bubble .stat-number {
+            font-size: 3.2em;
+            font-weight: 900;
+            margin-bottom: 8px;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+        }
+
+        .stat-bubble .stat-label {
+            font-size: 1.2em;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-align: center;
+            letter-spacing: -0.02em;
+            color: white;
+            opacity: 1;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Center bubble specific styles */
+        .stat-bubble.center .stat-label {
+            font-size: 2.5em;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        /* Position bubbles in a cross/plus pattern with more spacing */
+        .stat-bubble.top-left {
+            left: 15%;
+            top: 10%;
+        }
+
+        .stat-bubble.top-right {
+            left: 55%;
+            top: 10%;
+        }
+
+        .stat-bubble.center {
+            background: rgba(255, 59, 48, 0.9);
+            left: 30%;
+            top: 32%;
+            width: 430px;
+            height: 400px;
+            z-index: 4;
+        }
+
+        .stat-bubble.bottom-left {
+            left: 15%;
+            top: 60%;
+        }
+
+        .stat-bubble.bottom-right {
+            left: 55%;
+            top: 60%;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .bubbles-container {
+                height: auto;
+                padding: 30px;
+                flex-wrap: wrap;
+                gap: 50px;
+            }
+
+            .stat-bubble {
+                position: relative;
+                transform: none !important;
+                left: auto !important;
+                top: auto !important;
+                width: 300px;
+                height: 300px;
+                margin: 25px;
+            }
+
+            .stat-bubble.center {
+                width: 350px;
+                height: 350px;
+            }
+
+            .stat-bubble:hover {
+                transform: scale(1.15) !important;
+            }
+
+            .stat-bubble .stat-number {
+                font-size: 2.8em;
+            }
+
+            .stat-bubble .stat-label {
+                font-size: 1em;
+            }
+
+            .stat-bubble.center .stat-label {
+                font-size: 2em;
+            }
+        }
+
+        /* Background Bubbles Animation */
+        .floating-bubbles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-bubble {
+            position: absolute;
+            background: rgba(255, 59, 48, 0.3);
+            border-radius: 50%;
+            animation: float-around 20s linear infinite;
+            box-shadow: 0 0 15px rgba(255, 59, 48, 0.3);
+        }
+
+        /* Generate 100 unique floating bubbles with more variety */
+        .floating-bubble:nth-child(1) { width: 8px; height: 8px; left: 5%; top: 10%; animation-delay: 0s; }
+        .floating-bubble:nth-child(2) { width: 35px; height: 35px; left: 15%; top: 25%; animation-delay: -1s; }
+        .floating-bubble:nth-child(3) { width: 12px; height: 12px; left: 25%; top: 40%; animation-delay: -2s; }
+        .floating-bubble:nth-child(4) { width: 40px; height: 40px; left: 35%; top: 15%; animation-delay: -3s; }
+        .floating-bubble:nth-child(5) { width: 15px; height: 15px; left: 45%; top: 30%; animation-delay: -4s; }
+        .floating-bubble:nth-child(6) { width: 45px; height: 45px; left: 55%; top: 45%; animation-delay: -5s; }
+        .floating-bubble:nth-child(7) { width: 10px; height: 10px; left: 65%; top: 20%; animation-delay: -6s; }
+        .floating-bubble:nth-child(8) { width: 30px; height: 30px; left: 75%; top: 35%; animation-delay: -7s; }
+        .floating-bubble:nth-child(9) { width: 18px; height: 18px; left: 85%; top: 50%; animation-delay: -8s; }
+        .floating-bubble:nth-child(10) { width: 50px; height: 50px; left: 95%; top: 25%; animation-delay: -9s; }
+        /* Add 90 more bubbles with similar pattern but different sizes and positions */
+        .floating-bubble:nth-child(11) { width: 25px; height: 25px; left: 10%; top: 60%; animation-delay: -10s; }
+        .floating-bubble:nth-child(12) { width: 42px; height: 42px; left: 20%; top: 75%; animation-delay: -11s; }
+        .floating-bubble:nth-child(13) { width: 15px; height: 15px; left: 30%; top: 85%; animation-delay: -12s; }
+        .floating-bubble:nth-child(14) { width: 38px; height: 38px; left: 40%; top: 70%; animation-delay: -13s; }
+        .floating-bubble:nth-child(15) { width: 20px; height: 20px; left: 50%; top: 80%; animation-delay: -14s; }
+        .floating-bubble:nth-child(16) { width: 45px; height: 45px; left: 60%; top: 65%; animation-delay: -15s; }
+        .floating-bubble:nth-child(17) { width: 12px; height: 12px; left: 70%; top: 90%; animation-delay: -16s; }
+        .floating-bubble:nth-child(18) { width: 32px; height: 32px; left: 80%; top: 75%; animation-delay: -17s; }
+        .floating-bubble:nth-child(19) { width: 22px; height: 22px; left: 90%; top: 85%; animation-delay: -18s; }
+        .floating-bubble:nth-child(20) { width: 48px; height: 48px; left: 5%; top: 40%; animation-delay: -19s; }
+        /* Continue with more bubbles... */
+
+        @keyframes float-around {
+            0% {
+                transform: translate(0, 0) scale(1) rotate(0deg);
+                opacity: 0.3;
+            }
+            25% {
+                transform: translate(150px, -75px) scale(1.3) rotate(90deg);
+                opacity: 0.9;
+            }
+            50% {
+                transform: translate(300px, 0) scale(1) rotate(180deg);
+                opacity: 1;
+            }
+            75% {
+                transform: translate(150px, 75px) scale(1.3) rotate(270deg);
+                opacity: 0.9;
+            }
+            100% {
+                transform: translate(0, 0) scale(1) rotate(360deg);
+                opacity: 0.3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .floating-bubble {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -491,7 +1070,81 @@
         </div>
     </section>
 
-        
+    <!-- Statistics Bubbles Section -->
+    <section class="statistics-bubbles">
+        <div class="bubbles-container">
+            <div class="tiny-bubbles">
+                <div class="tiny-bubble"></div>
+                <div class="tiny-bubble"></div>
+                <div class="tiny-bubble"></div>
+                <div class="tiny-bubble"></div>
+                <div class="tiny-bubble"></div>
+                <div class="tiny-bubble"></div>
+                <div class="tiny-bubble"></div>
+                <div class="tiny-bubble"></div>
+                <div class="tiny-bubble"></div>
+                <div class="tiny-bubble"></div>
+                <div class="tiny-bubble"></div>
+                <div class="tiny-bubble"></div>
+                <div class="tiny-bubble"></div>
+                <div class="tiny-bubble"></div>
+                <div class="tiny-bubble"></div>
+            </div>
+            <div class="stat-bubble top-left">
+                <span class="stat-number">24+</span>
+                <span class="stat-label">Squad Size</span>
+            </div>
+            <div class="stat-bubble top-right">
+                <span class="stat-number">15+</span>
+                <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-bubble center">
+                <span class="stat-label">MILESTONES</span>
+            </div>
+            <div class="stat-bubble bottom-left">
+                <span class="stat-number">3+</span>
+                <span class="stat-label">Hackathons</span>
+            </div>
+            <div class="stat-bubble bottom-right">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Dedication</span>
+            </div>
+            <div class="floating-bubbles">
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+                <div class="floating-bubble"></div>
+            </div>
+        </div>
+    </section>
 
     <footer class="site-footer">
         <div class="footer-container">
@@ -499,6 +1152,12 @@
                 <div class="footer-section">
                     <a href="ttttt.html" class="footer-logo">Squad 80</a>
                     <p>Empowering students through collaborative learning and project-based education.</p>
+                    <h4>Social Us</h4>
+                    <div class="social-links-footer">
+                        <a href="https://www.youtube.com/@Kalvium" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/kalvium_official?igshid=MWgwaHFzenlraXJreg==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/school/kalvium/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
@@ -510,13 +1169,20 @@
                         <li><a href="mentors.html">Mentors</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h4>Connect</h4>
-                    <div class="social-links-footer">
-                        <a href="https://www.youtube.com/@Kalvium" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.instagram.com/kalvium_official?igshid=MWgwaHFzenlraXJreg==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/school/kalvium/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    </div>
+                <div class="footer-section contact-section">
+                    <h4>Message Us</h4>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -526,40 +1192,36 @@
     </footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const text = "Where Education Meets Industry.";
-            let i = 0;
+        document.addEventListener("DOMContentLoaded", function() {
+            // Hero text animation
             const heroText = document.getElementById("hero-text");
-            
-            function typeWriter() {
-                if (i < text.length) {
-                    heroText.textContent = text.substring(0, i + 1);
-                    i++;
-                    setTimeout(typeWriter, 150);
-                }
-            }
-            typeWriter();
+            const heroString = "Where Education Meets Industry.";
+            typeText(heroText, heroString);
 
-            // Add scroll-based movement for social links
-            const socialLinks = document.querySelector('.social-links');
-            let lastScrollTop = 0;
+            // Contact section animation
+            const subtitle = document.querySelector('.contact-subtitle');
+            const subtitleText = "Have questions? We'd love to hear from you.";
             
-            window.addEventListener('scroll', function() {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                const windowHeight = window.innerHeight;
-                const documentHeight = document.documentElement.scrollHeight;
+            function typeText(element, text, callback) {
+                let index = 0;
+                element.textContent = '';
                 
-                // Calculate the scroll percentage (0 to 1)
-                const scrollPercent = scrollTop / (documentHeight - windowHeight);
-                
-                // Calculate the new position (start at 20% of viewport height, end at 80%)
-                const minTop = windowHeight * 0.2;
-                const maxTop = windowHeight * 0.8;
-                const newTop = minTop + (maxTop - minTop) * scrollPercent;
-                
-                socialLinks.style.top = `${newTop}px`;
-                lastScrollTop = scrollTop;
-            });
+                function type() {
+                    if (index < text.length) {
+                        element.textContent = text.substring(0, index + 1);
+                        index++;
+                        setTimeout(type, 100);
+                    } else if (callback) {
+                        callback();
+                    }
+                }
+                type();
+            }
+
+            // Start subtitle animation after a short delay
+            setTimeout(() => {
+                typeText(subtitle, subtitleText);
+            }, 500);
         });
     </script>
 </body>

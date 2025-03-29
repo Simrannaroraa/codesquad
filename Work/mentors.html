@@ -150,7 +150,7 @@
             background: #ffffff;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 25px rgba(255, 59, 48, 0.15);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
             padding: 20px;
@@ -159,7 +159,7 @@
 
         .mentor-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(255, 59, 48, 0.15);
+            box-shadow: 0 15px 35px rgba(255, 59, 48, 0.25);
         }
 
         .mentor-image {
@@ -204,22 +204,25 @@
         .linkedin-info {
             position: absolute;
             bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            padding: 8px;
             background: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
+            gap: 12px;
             opacity: 0;
-            transform: translateY(100%);
+            transform: translateY(100%) translateX(-50%);
             transition: all 0.3s ease;
+            border-radius: 0 0 8px 8px;
+            height: 40px;
         }
 
         .mentor-card:hover .linkedin-info {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) translateX(-50%);
         }
 
         .linkedin-info img {
@@ -233,15 +236,28 @@
             filter: invert(36%) sepia(66%) saturate(7057%) hue-rotate(343deg) brightness(98%) contrast(126%);
         }
 
+        .linkedin-info a i {
+            font-size: 1.5em;
+            color: #FF3B30;
+            transition: transform 0.3s ease;
+        }
+
+        .linkedin-info a:hover i {
+            transform: scale(1.2);
+        }
+
         .view-more {
-            display: inline-block;
-            padding: 10px 20px;
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 15px;
             background: #FF3B30;
             color: white;
             text-decoration: none;
             border-radius: 5px;
-            margin-top: 15px;
+            margin-top: 0;
             transition: all 0.3s ease;
+            height: 24px;
+            font-size: 0.9em;
         }
 
         .view-more:hover {
@@ -363,91 +379,85 @@
         <div class="mentors-grid">
             <!-- Mentor Card 1 -->
             <div class="mentor-card">
-                <img src="kanchan.jpg" alt="Kanchan Kumari" class="mentor-image" style="object-position: center 0;">
+                <img src="kanchan profile.jpg" alt="Kanchan" class="mentor-image">
                 <div class="mentor-info">
-                    <h2 class="mentor-name">Kanchan Kumari</h2>
-                    <div class="mentor-role">Campus Manager</div>
-                </div>
-                <div class="linkedin-info">
-                    <a href="https://www.linkedin.com/in/kanchan-kumari-151404250/" target="_blank">
-                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-                    </a>
-                    <a href="mentor-profiles/kanchan.html" class="view-more">View More</a>
+                    <div class="mentor-name">Kanchan</div>
+                    <div class="linkedin-info">
+                        <a href="https://www.linkedin.com/in/kanchan-kumari-151404250/" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mentor-profiles/kanchan.html" class="view-more">View More</a>
+                    </div>
                 </div>
             </div>
 
             <!-- Mentor Card 2 -->
             <div class="mentor-card">
-                <img src="manav.jpg" alt="Manav Verma" class="mentor-image" style="object-position: center 0;">
+                <img src="manav.jpg" alt="Manav" class="mentor-image">
                 <div class="mentor-info">
-                    <h2 class="mentor-name">Manav Verma</h2>
-                    <div class="mentor-role">Technical Mentor</div>
-                </div>
-                <div class="linkedin-info">
-                    <a href="https://www.linkedin.com/in/manav-verma-414927188/" target="_blank">
-                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-                    </a>
-                    <a href="mentor-profiles/manav.html" class="view-more">View More</a>
+                    <div class="mentor-name">Manav</div>
+                    <div class="linkedin-info">
+                        <a href="https://www.linkedin.com/in/manav-verma-414927188/" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mentor-profiles/manav.html" class="view-more">View More</a>
+                    </div>
                 </div>
             </div>
 
             <!-- Mentor Card 3 -->
             <div class="mentor-card">
-                <img src="aparna.jpg" alt="Aparna Tiwari" class="mentor-image" style="object-position: center 0;">
+                <img src="aparna profile.jpg" alt="Aparna" class="mentor-image" style="object-position: center 50%;">
                 <div class="mentor-info">
-                    <h2 class="mentor-name">Aparna Tiwari</h2>
-                    <div class="mentor-role">Technical Mentor</div>
-                </div>
-                <div class="linkedin-info">
-                    <a href="http://linkedin.com/in/aparna-tiwari-642038274/" target="_blank">
-                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-                    </a>
-                    <a href="mentor-profiles/aparna.html" class="view-more">View More</a>
+                    <div class="mentor-name">Aparna</div>
+                    <div class="linkedin-info">
+                        <a href="http://linkedin.com/in/aparna-tiwari-642038274/" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mentor-profiles/aparna.html" class="view-more">View More</a>
+                    </div>
                 </div>
             </div>
 
             <!-- Mentor Card 4 -->
             <div class="mentor-card">
-                <img src="junaid.jpg" alt="Junaid Khan" class="mentor-image" style="object-position: center 30%;">
+                <img src="junaid.jpg" alt="Junaid" class="mentor-image">
                 <div class="mentor-info">
-                    <h2 class="mentor-name">Junaid Khan</h2>
-                    <div class="mentor-role">Technical Mentor</div>
-                </div>
-                <div class="linkedin-info">
-                    <a href="https://www.linkedin.com/in/junaidify-Khan/?_l=en_US" target="_blank">
-                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-                    </a>
-                    <a href="mentor-profiles/junaid.html" class="view-more">View More</a>
+                    <div class="mentor-name">Junaid</div>
+                    <div class="linkedin-info">
+                        <a href="https://www.linkedin.com/in/junaidify-Khan/?_l=en_US" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mentor-profiles/junaid.html" class="view-more">View More</a>
+                    </div>
                 </div>
             </div>
 
             <!-- Mentor Card 5 -->
             <div class="mentor-card">
-                <img src="rohith.jpg" alt="Rohith" class="mentor-image" style="object-position: center 35%;">
+                <img src="rohith.jpg" alt="Rohith" class="mentor-image" style="object-position: center 50%;">
                 <div class="mentor-info">
-                    <h2 class="mentor-name">Rohith</h2>
-                    <div class="mentor-role">Technical Mentor</div>
-                </div>
-                <div class="linkedin-info">
-                    <a href="https://www.linkedin.com/in/rohith" target="_blank">
-                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-                    </a>
-                    <a href="mentor-profiles/rohith.html" class="view-more">View More</a>
+                    <div class="mentor-name">Rohith</div>
+                    <div class="linkedin-info">
+                        <a href="https://www.linkedin.com/in/rohith" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mentor-profiles/rohith.html" class="view-more">View More</a>
+                    </div>
                 </div>
             </div>
 
             <!-- Mentor Card 6 -->
             <div class="mentor-card">
-                <img src="khyati.jpg" alt="Khyati Sadana" class="mentor-image" style="object-position: center 25%;">
+                <img src="kyati profile.jpg" alt="Khyati" class="mentor-image">
                 <div class="mentor-info">
-                    <h2 class="mentor-name">Khyati Sadana</h2>
-                    <div class="mentor-role">Campus Manager</div>
-                </div>
-                <div class="linkedin-info">
-                    <a href="https://www.linkedin.com/in/khyati-sadana-9a4978290/" target="_blank">
-                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-                    </a>
-                    <a href="mentor-profiles/khyati.html" class="view-more">View More</a>
+                    <div class="mentor-name">Khyati</div>
+                    <div class="linkedin-info">
+                        <a href="https://www.linkedin.com/in/khyati-sadana-9a4978290/" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mentor-profiles/khyati.html" class="view-more">View More</a>
+                    </div>
                 </div>
             </div>
         </div>
