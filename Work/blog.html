@@ -321,33 +321,34 @@
         }
 
         function displayBlog(blog) {
-        let blogGrid = document.querySelector(".blog-grid");
-        let blogCard = document.createElement("div");
-        blogCard.classList.add("blog-card");
+            let blogGrid = document.querySelector(".blog-grid");
+            let blogCard = document.createElement("div");
+            blogCard.classList.add("blog-card");
 
-        blogCard.innerHTML = `
-            ${`blog.image ? <img class='blog-image' src='${blog.image}' alt='Blog Image'`> : ""}
-            <div class='blog-info'>
-                <h3>${blog.name}</h3>
-                <p>${blog.content}</p>
-                <button class="btn-delete" onclick="deleteBlog(${blog.id})">Delete</button>
-            </div>
-        `;
+            blogCard.innerHTML = `
+                ${blog.image ? `<img class="blog-image" src="${blog.image}" alt="Blog Image">` : ''}
+                <div class="blog-info">
+                    <div class="blog-meta">${blog.date}</div>
+                    <h3>${blog.name}</h3>
+                    <p>${blog.content}</p>
+                    <button class="btn-delete" onclick="deleteBlog(${blog.id})">Delete</button>
+                </div>
+            `;
 
-        blogGrid.appendChild(blogCard);
-    }
+            blogGrid.insertBefore(blogCard, blogGrid.firstChild);
+        }
 
-    function deleteBlog(blogId) {
-        let blogs = JSON.parse(localStorage.getItem("blogs")) || [];
-        let updatedBlogs = blogs.filter(blog => blog.id !== blogId);
-        localStorage.setItem("blogs", JSON.stringify(updatedBlogs));
+        function deleteBlog(blogId) {
+            let blogs = JSON.parse(localStorage.getItem("blogs")) || [];
+            let updatedBlogs = blogs.filter(blog => blog.id !== blogId);
+            localStorage.setItem("blogs", JSON.stringify(updatedBlogs));
 
-        // Refresh the displayed blogs
-        document.querySelector(".blog-grid").innerHTML = "";
-        loadBlogs();
-    }
+            // Refresh the displayed blogs
+            document.querySelector(".blog-grid").innerHTML = "";
+            loadBlogs();
+        }
 
-    function loadBlogs() {
+        function loadBlogs() {
             try {
                 let blogs = JSON.parse(localStorage.getItem("blogs") || "[]");
                 const blogGrid = document.querySelector(".blog-grid");
