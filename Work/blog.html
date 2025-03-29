@@ -137,28 +137,102 @@
             text-align: center;
             margin: 40px auto;
             max-width: 600px;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 59, 48, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 16px;
+            background: linear-gradient(45deg, #FF3B30, #ff6b6b);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 59, 48, 0.15);
+            border-color: rgba(255, 59, 48, 0.4);
+        }
+
+        .container:hover::before {
+            opacity: 0.3;
+        }
+
+        .container h2 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 25px;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
         }
 
         .container input, .container textarea {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            background: #fff;
+            color: #333;
+        }
+
+        .container input:focus, .container textarea:focus {
+            outline: none;
+            border-color: #FF3B30;
+            box-shadow: 0 0 0 2px rgba(255, 59, 48, 0.1);
+        }
+
+        .container textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .container input::placeholder, .container textarea::placeholder {
+            color: #999;
         }
 
         .btn {
             background: #FF3B30;
             color: white;
-            padding: 10px 15px;
+            padding: 12px 25px;
             border: none;
             cursor: pointer;
-            border-radius: 5px;
-            transition: 0.3s;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            width: auto;
+            display: inline-block;
+            margin-top: 10px;
         }
 
         .btn:hover {
             background: #ff1f1f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 59, 48, 0.2);
+        }
+
+        #imageUpload {
+            padding: 10px;
+            margin-bottom: 20px;
+            background: #f8f9fa;
+            cursor: pointer;
         }
 
         .btn-delete {
@@ -252,7 +326,7 @@
         blogCard.classList.add("blog-card");
 
         blogCard.innerHTML = `
-            ${blog.image ? `<img class='blog-image' src='${blog.image}' alt='Blog Image'>` : ""}
+            ${`blog.image ? <img class='blog-image' src='${blog.image}' alt='Blog Image'`> : ""}
             <div class='blog-info'>
                 <h3>${blog.name}</h3>
                 <p>${blog.content}</p>
@@ -286,4 +360,4 @@
         }
     </script>
 </body>
-</html>
+</html> 

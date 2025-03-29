@@ -151,6 +151,17 @@
         .profile-email {
             font-size: 1.1em;
             color: #FF3B30;
+            margin: 0 0 20px;
+            font-family: 'Inter', sans-serif;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .profile-phone {
+            font-size: 1.1em;
+            color: #FF3B30;
             margin: 0 0 40px;
             font-family: 'Inter', sans-serif;
             opacity: 0.9;
@@ -163,13 +174,28 @@
             font-size: 1.1em;
         }
 
+        .profile-phone i {
+            font-size: 1.1em;
+        }
+
         .profile-email a {
             color: #FF3B30;
             text-decoration: none;
             transition: all 0.3s ease;
         }
 
+        .profile-phone a {
+            color: #FF3B30;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
         .profile-email a:hover {
+            color: white;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        .profile-phone a:hover {
             color: white;
             text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
         }
@@ -271,7 +297,6 @@
         <nav>
             <div class="logo">
                 <img src="../klogo.jpg" alt="Kalvium Logo">
-                <span>KALVIUM</span>
             </div>
             <ul class="nav-links">
                 <li><a href="../ttttt.html">Home</a></li>
@@ -287,9 +312,17 @@
     <div class="profile-container">
         <div class="profile-left">
             <img src="../manav.jpg" alt="Manav" class="profile-picture">
+            <h1 class="profile-name">Manav Verma</h1>
+            <div class="profile-email">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:manav@example.com">manav.verma@kalvium.community</a>
+            </div>
+            <div class="profile-phone">
+                <i class="fas fa-phone"></i>
+                <a href="tel:+1234567890">8349331307</a>
+            </div>
         </div>
         <div class="profile-right">
-            <h1 class="profile-name">Manav</h1>
             <div class="section">
                 <h2 class="section-title">About Manav</h2>
                 <div class="section-content">

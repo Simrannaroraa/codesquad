@@ -155,6 +155,7 @@
             text-align: center;
             padding: 20px;
             margin-bottom: 30px;
+            position: relative;
         }
 
         .mentor-card:hover {
@@ -353,6 +354,109 @@
             font-size: 0.9em;
             margin: 0;
         }
+
+        .courses-section {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .courses-section h2 {
+            font-size: 3em;
+            font-weight: 800;
+            color: #333;
+            margin-bottom: 40px;
+            letter-spacing: -0.02em;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .course-card {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            position: relative;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 59, 48, 0.15);
+        }
+
+        .course-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .course-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #333;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .progress-bar {
+            width: calc(100% - 50px);
+            background-color: rgba(255, 59, 48, 0.1);
+            border-radius: 8px;
+            height: 12px;
+            margin-top: 10px;
+            overflow: hidden;
+            position: relative;
+            display: inline-block;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(45deg, #FF3B30, #ff6b6b);
+            width: 0%;
+            border-radius: 8px;
+            transition: width 0.5s ease-in-out;
+        }
+
+        .progress-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .progress-text {
+            color: #333;
+            font-size: 0.9em;
+            font-weight: 600;
+            min-width: 40px;
+            text-align: right;
+        }
+
+        @media (max-width: 768px) {
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h2 {
+                font-size: 2.5em;
+            }
+            
+            .course-card {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -381,7 +485,7 @@
             <div class="mentor-card">
                 <img src="kanchan profile.jpg" alt="Kanchan" class="mentor-image">
                 <div class="mentor-info">
-                    <div class="mentor-name">Kanchan</div>
+                    <div class="mentor-name">Kanchan Kumari</div>
                     <div class="linkedin-info">
                         <a href="https://www.linkedin.com/in/kanchan-kumari-151404250/" target="_blank">
                             <i class="fab fa-linkedin"></i>
@@ -395,7 +499,7 @@
             <div class="mentor-card">
                 <img src="manav.jpg" alt="Manav" class="mentor-image">
                 <div class="mentor-info">
-                    <div class="mentor-name">Manav</div>
+                    <div class="mentor-name">Manav Verma</div>
                     <div class="linkedin-info">
                         <a href="https://www.linkedin.com/in/manav-verma-414927188/" target="_blank">
                             <i class="fab fa-linkedin"></i>
@@ -409,7 +513,7 @@
             <div class="mentor-card">
                 <img src="aparna profile.jpg" alt="Aparna" class="mentor-image" style="object-position: center 50%;">
                 <div class="mentor-info">
-                    <div class="mentor-name">Aparna</div>
+                    <div class="mentor-name">Aparna Tiwari</div>
                     <div class="linkedin-info">
                         <a href="http://linkedin.com/in/aparna-tiwari-642038274/" target="_blank">
                             <i class="fab fa-linkedin"></i>
@@ -423,7 +527,7 @@
             <div class="mentor-card">
                 <img src="junaid.jpg" alt="Junaid" class="mentor-image">
                 <div class="mentor-info">
-                    <div class="mentor-name">Junaid</div>
+                    <div class="mentor-name">Junaid Khan</div>
                     <div class="linkedin-info">
                         <a href="https://www.linkedin.com/in/junaidify-Khan/?_l=en_US" target="_blank">
                             <i class="fab fa-linkedin"></i>
@@ -437,7 +541,7 @@
             <div class="mentor-card">
                 <img src="rohith.jpg" alt="Rohith" class="mentor-image" style="object-position: center 50%;">
                 <div class="mentor-info">
-                    <div class="mentor-name">Rohith</div>
+                    <div class="mentor-name">Rohith Gupta</div>
                     <div class="linkedin-info">
                         <a href="https://www.linkedin.com/in/rohith" target="_blank">
                             <i class="fab fa-linkedin"></i>
@@ -451,7 +555,7 @@
             <div class="mentor-card">
                 <img src="kyati profile.jpg" alt="Khyati" class="mentor-image">
                 <div class="mentor-info">
-                    <div class="mentor-name">Khyati</div>
+                    <div class="mentor-name">Khyati Sadana</div>
                     <div class="linkedin-info">
                         <a href="https://www.linkedin.com/in/khyati-sadana-9a4978290/" target="_blank">
                             <i class="fab fa-linkedin"></i>
@@ -462,6 +566,11 @@
             </div>
         </div>
     </main>
+
+    <section class="courses-section">
+        <h2>Mentor-Guided Courses</h2>
+        <div id="courses-container" class="courses-grid"></div>
+    </section>
 
     <footer class="site-footer">
         <div class="footer-container">
@@ -494,5 +603,70 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const courses = [
+            { 
+                title: "Frontend - ADVANCED", 
+                progress: 88, 
+                image: "fewd.svg"
+            },
+            { 
+                title: "Database Management Systems", 
+                progress: 57, 
+                image: "dbms.png"
+            },
+            { 
+                title: "Critical Thinking 101", 
+                progress: 100, 
+                image: "ct.png"
+            },
+            { 
+                title: "Design for Developers", 
+                progress: 100, 
+                image: "dfd.png"
+            },
+            {
+                title: "The Breadth of Computer Science - 1 & 2",
+                progress: 96,
+                image: "bocs.png"
+            },
+            {
+                title: "Problem Solving - ADVANCED",
+                progress: 100,
+                image: "psup.jpg"
+            },
+            {
+                title: "Well being and personal growth",
+                progress: 72,
+                image: "wb.jpg"
+            },
+            {
+                title: "Professional Skills at Workplace",
+                progress: 35,
+                image: "psw.png"
+            }
+        ];
+
+        const container = document.getElementById("courses-container");
+
+        courses.forEach((course, index) => {
+            const card = document.createElement("div");
+            card.classList.add("course-card");
+
+            card.innerHTML = `
+                <img src="${course.image}" alt="${course.title}" class="course-image">
+                <div class="course-title">${course.title}</div>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress" style="width: ${course.progress}%;"></div>
+                    </div>
+                    <span class="progress-text">${course.progress}%</span>
+                </div>
+            `;
+
+            container.appendChild(card);
+        });
+    </script>
 </body>
 </html>

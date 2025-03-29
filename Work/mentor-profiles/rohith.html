@@ -11,8 +11,12 @@
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            color: white;
-            background-color: #000;
+            color: #333;
+            background-color: #fff;
+            background-image: url('../Final%20bg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             position: relative;
             padding-top: 80px;
             min-height: 100vh;
@@ -20,9 +24,9 @@
         }
 
         header {
-            background: rgba(0, 0, 0, 0.9);
+            background: #ffffff;
             padding: 0;
-            box-shadow: 0 0 10px #FF3B30;
+            box-shadow: 0 5px 15px rgba(255, 59, 48, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
@@ -101,6 +105,10 @@
             align-items: flex-start;
             animation: zoomOut 0.8s ease-out;
             transform-origin: center;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            padding: 30px;
         }
 
         @keyframes zoomOut {
@@ -135,16 +143,15 @@
 
         .profile-name {
             font-size: 2.8em;
-            color: white;
+            color: #333;
             margin: 0 0 10px;
             font-family: 'Orbitron', sans-serif;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
         }
 
         .profile-email {
             font-size: 1.1em;
             color: #FF3B30;
-            margin: 0 0 40px;
+            margin: 0 0 20px;
             font-family: 'Inter', sans-serif;
             opacity: 0.9;
             display: flex;
@@ -167,8 +174,34 @@
             text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
         }
 
+        .profile-phone {
+            font-size: 1.1em;
+            color: #FF3B30;
+            margin: 0 0 40px;
+            font-family: 'Inter', sans-serif;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .profile-phone i {
+            font-size: 1.1em;
+        }
+
+        .profile-phone a {
+            color: #FF3B30;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .profile-phone a:hover {
+            color: white;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
         .section {
-            background: rgba(20, 20, 20, 0.8);
+            background: #ffffff;
             border-radius: 12px;
             padding: 25px;
             margin-bottom: 25px;
@@ -178,15 +211,14 @@
 
         .section-title {
             font-size: 1.6em;
-            color: #FF3B30;
+            color: #333;
             margin-bottom: 20px;
             font-family: 'Orbitron', sans-serif;
-            text-shadow: 0 0 5px rgba(255, 59, 48, 0.2);
         }
 
         .section-content {
             line-height: 1.6;
-            color: #ccc;
+            color: #666;
             font-size: 1.1em;
         }
 
@@ -245,7 +277,6 @@
         <nav>
             <div class="logo">
                 <img src="../klogo.jpg" alt="Kalvium Logo">
-                <span>KALVIUM</span>
             </div>
             <ul class="nav-links">
                 <li><a href="../ttttt.html">Home</a></li>
@@ -261,9 +292,17 @@
     <div class="profile-container">
         <div class="profile-left">
             <img src="../rohith.jpg" alt="Rohith" class="profile-picture">
+            <h1 class="profile-name">Rohith Gupta</h1>
+            <div class="profile-email">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:rohith@example.com">rohith.gupta@kalvium.community</a>
+            </div>
+            <div class="profile-phone">
+                <i class="fas fa-phone"></i>
+                <a href="tel:+1234567890">9516803962</a>
+            </div>
         </div>
         <div class="profile-right">
-            <h1 class="profile-name">Rohith</h1>
             <div class="section">
                 <h2 class="section-title">About Rohith</h2>
                 <div class="section-content">

@@ -1042,163 +1042,392 @@
                 display: none;
             }
         }
+
+        /* Video Intro Styles */
+        .video-intro {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+            transition: opacity 1s ease-out;
+        }
+
+        .video-intro.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .video-intro video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Hide main content initially */
+        .main-content {
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+
+        .main-content.show {
+            opacity: 1;
+        }
+
+        /* Chatbot Styles */
+        .chatbot-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .chat-icon {
+            width: 60px;
+            height: 60px;
+            background: #FF3B30;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(255, 59, 48, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .chat-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-icon span {
+            font-size: 30px;
+        }
+
+        .chat-window {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-window.active {
+            display: flex;
+        }
+
+        .chat-header {
+            background: #FF3B30;
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chat-header .bot-avatar {
+            width: 35px;
+            height: 35px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .chat-header .bot-info h3 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .chat-header .bot-info p {
+            margin: 0;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            max-width: 80%;
+        }
+
+        .bot-message {
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 15px 15px 15px 0;
+            margin-right: auto;
+        }
+
+        .user-message {
+            background: #FF3B30;
+            color: white;
+            padding: 10px;
+            border-radius: 15px 15px 0 15px;
+            margin-left: auto;
+        }
+
+        .chat-input {
+            padding: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+        }
+
+        .chat-input button {
+            background: #FF3B30;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .chat-input button:hover {
+            background: #E6352B;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="ttttt.html" class="logo">
-                <img src="klogo.jpg" alt="Kalvium Logo">
-            </a>
-            <ul class="nav-links">
-                <li><a href="ttttt.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="mentors.html">Mentors</a></li>
-                <li><a href="student.html">Students</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="memories.html">Memories</a></li>
-                <li><a href="blog.html">Blog</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Video Intro Section -->
+    <div class="video-intro">
+        <video id="intro-video" autoplay muted>
+            <source src="transition.mp4" type="video/mp4">
+        </video>
+    </div>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Welcome to Squad 80</h1>
-            <p id="hero-text"></p>
-            <a href="about.html" class="btn">Explore</a>
-        </div>
-    </section>
+    <!-- Main Content Wrapper -->
+    <div class="main-content">
+        <header>
+            <nav>
+                <a href="ttttt.html" class="logo">
+                    <img src="klogo.jpg" alt="Kalvium Logo">
+                </a>
+                <ul class="nav-links">
+                    <li><a href="ttttt.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="mentors.html">Mentors</a></li>
+                    <li><a href="student.html">Students</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="memories.html">Memories</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <!-- Statistics Bubbles Section -->
-    <section class="statistics-bubbles">
-        <div class="bubbles-container">
-            <div class="tiny-bubbles">
-                <div class="tiny-bubble"></div>
-                <div class="tiny-bubble"></div>
-                <div class="tiny-bubble"></div>
-                <div class="tiny-bubble"></div>
-                <div class="tiny-bubble"></div>
-                <div class="tiny-bubble"></div>
-                <div class="tiny-bubble"></div>
-                <div class="tiny-bubble"></div>
-                <div class="tiny-bubble"></div>
-                <div class="tiny-bubble"></div>
-                <div class="tiny-bubble"></div>
-                <div class="tiny-bubble"></div>
-                <div class="tiny-bubble"></div>
-                <div class="tiny-bubble"></div>
-                <div class="tiny-bubble"></div>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Welcome to Squad 80</h1>
+                <p id="hero-text"></p>
+                <a href="about.html" class="btn">Explore</a>
             </div>
-            <div class="stat-bubble top-left">
-                <span class="stat-number">24+</span>
-                <span class="stat-label">Squad Size</span>
-            </div>
-            <div class="stat-bubble top-right">
-                <span class="stat-number">15+</span>
-                <span class="stat-label">Projects</span>
-            </div>
-            <div class="stat-bubble center">
-                <span class="stat-label">MILESTONES</span>
-            </div>
-            <div class="stat-bubble bottom-left">
-                <span class="stat-number">3+</span>
-                <span class="stat-label">Hackathons</span>
-            </div>
-            <div class="stat-bubble bottom-right">
-                <span class="stat-number">100%</span>
-                <span class="stat-label">Dedication</span>
-            </div>
-            <div class="floating-bubbles">
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-                <div class="floating-bubble"></div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <footer class="site-footer">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <a href="ttttt.html" class="footer-logo">Squad 80</a>
-                    <p>Empowering students through collaborative learning and project-based education.</p>
-                    <h4>Social Us</h4>
-                    <div class="social-links-footer">
-                        <a href="https://www.youtube.com/@Kalvium" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.instagram.com/kalvium_official?igshid=MWgwaHFzenlraXJreg==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/school/kalvium/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <!-- Statistics Bubbles Section -->
+        <section class="statistics-bubbles">
+            <div class="bubbles-container">
+                <div class="tiny-bubbles">
+                    <div class="tiny-bubble"></div>
+                    <div class="tiny-bubble"></div>
+                    <div class="tiny-bubble"></div>
+                    <div class="tiny-bubble"></div>
+                    <div class="tiny-bubble"></div>
+                    <div class="tiny-bubble"></div>
+                    <div class="tiny-bubble"></div>
+                    <div class="tiny-bubble"></div>
+                    <div class="tiny-bubble"></div>
+                    <div class="tiny-bubble"></div>
+                    <div class="tiny-bubble"></div>
+                    <div class="tiny-bubble"></div>
+                    <div class="tiny-bubble"></div>
+                    <div class="tiny-bubble"></div>
+                    <div class="tiny-bubble"></div>
+                </div>
+                <div class="stat-bubble top-left">
+                    <span class="stat-number">24+</span>
+                    <span class="stat-label">Squad Size</span>
+                </div>
+                <div class="stat-bubble top-right">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat-bubble center">
+                    <span class="stat-label">MILESTONES</span>
+                </div>
+                <div class="stat-bubble bottom-left">
+                    <span class="stat-number">3+</span>
+                    <span class="stat-label">Hackathons</span>
+                </div>
+                <div class="stat-bubble bottom-right">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Dedication</span>
+                </div>
+                <div class="floating-bubbles">
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <div class="footer-container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <a href="ttttt.html" class="footer-logo">Squad 80</a>
+                        <p>Empowering students through collaborative learning and project-based education.</p>
+                        <h4>Social Us</h4>
+                        <div class="social-links-footer">
+                            <a href="https://www.youtube.com/@Kalvium" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.instagram.com/kalvium_official?igshid=MWgwaHFzenlraXJreg==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/school/kalvium/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="ttttt.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="mentors.html">Mentors</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section contact-section">
+                        <h4>Message Us</h4>
+                        <form class="contact-form" action="https://formspree.io/f/xdkelzdk" method="POST">
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
                     </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="ttttt.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="mentors.html">Mentors</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section contact-section">
-                    <h4>Message Us</h4>
-                    <form class="contact-form">
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Your Message" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Send Message</button>
-                    </form>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Squad 80. All rights reserved.</p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Squad 80. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget">
+        <div class="chat-icon" onclick="toggleChat(event)">
+            <span>😊</span>
+        </div>
+        <div class="chat-window">
+            <div class="chat-header">
+                <div class="bot-avatar">😊</div>
+                <div class="bot-info">
+                    <h3>Kalvy</h3>
+                    <p>Online</p>
+                </div>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot-message">
+                    Hi! I'm Kalvy, your friendly assistant. How can I help you today? 😊
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+                <button onclick="sendMessage()">Send</button>
             </div>
         </div>
-    </footer>
+    </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Hero text animation
+            const videoIntro = document.querySelector('.video-intro');
+            const mainContent = document.querySelector('.main-content');
+            const introVideo = document.getElementById('intro-video');
+
+            // When video ends, fade it out and show main content
+            introVideo.addEventListener('ended', function() {
+                videoIntro.classList.add('fade-out');
+                mainContent.classList.add('show');
+            });
+
+            // Add click outside listener
+            document.addEventListener('click', function(event) {
+                const chatWindow = document.querySelector('.chat-window');
+                const chatIcon = document.querySelector('.chat-icon');
+                const isClickInside = chatWindow.contains(event.target) || chatIcon.contains(event.target);
+                
+                if (!isClickInside && chatWindow.classList.contains('active')) {
+                    chatWindow.classList.remove('active');
+                }
+            });
+
+            // Prevent clicks inside chatbot from bubbling up
+            const chatbot = document.querySelector('.chatbot-widget');
+            chatbot.addEventListener('click', function(event) {
+                event.stopPropagation();
+            });
+
+            // Existing JavaScript code
             const heroText = document.getElementById("hero-text");
             const heroString = "Where Education Meets Industry.";
             typeText(heroText, heroString);
 
-            // Contact section animation
             const subtitle = document.querySelector('.contact-subtitle');
             const subtitleText = "Have questions? We'd love to hear from you.";
             
@@ -1218,11 +1447,175 @@
                 type();
             }
 
-            // Start subtitle animation after a short delay
             setTimeout(() => {
                 typeText(subtitle, subtitleText);
             }, 500);
         });
+
+        // Modify toggleChat function to prevent event bubbling
+        function toggleChat(event) {
+            if (event) {
+                event.stopPropagation();
+            }
+            const chatWindow = document.querySelector('.chat-window');
+            chatWindow.classList.toggle('active');
+            if (chatWindow.classList.contains('active')) {
+                document.getElementById('user-input').focus();
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('user-input');
+            const message = input.value.trim();
+            
+            if (message) {
+                const messagesContainer = document.getElementById('chat-messages');
+                
+                // Add user message
+                const userMessage = document.createElement('div');
+                userMessage.className = 'message user-message';
+                userMessage.textContent = message;
+                messagesContainer.appendChild(userMessage);
+                
+                // Clear input
+                input.value = '';
+                
+                // Simulate bot response after a short delay
+                setTimeout(() => {
+                    const botMessage = document.createElement('div');
+                    botMessage.className = 'message bot-message';
+                    botMessage.textContent = getBotResponse(message);
+                    messagesContainer.appendChild(botMessage);
+                    
+                    // Scroll to bottom
+                    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                }, 1000);
+            }
+        }
+
+        function getBotResponse(message) {
+            message = message.toLowerCase();
+            
+            // Greetings
+            if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
+                return "Hello! 👋 Welcome to Squad 80! I'm Kalvy, your virtual assistant. How can I help you today? 😊";
+            }
+            
+            // About Squad 80
+            if (message.includes('about') || message.includes('squad 80') || message.includes('what is') || message.includes('who are')) {
+                return "Squad 80 is a dynamic learning community at Kalvium! 🚀 We're focused on practical, industry-relevant education in technology. Our squad consists of passionate learners and experienced mentors working together to create innovative projects. Would you like to know more about our programs or team? 🎯";
+            }
+            
+            // Courses and Programs
+            if (message.includes('course') || message.includes('program') || message.includes('study') || message.includes('learn')) {
+                return "We offer several exciting tech courses! 📚\n\n" +
+                       "1. Web Development 💻\n" +
+                       "2. Mobile App Development 📱\n" +
+                       "3. Data Science & Analytics 📊\n" +
+                       "4. UI/UX Design 🎨\n\n" +
+                       "Which course interests you? I can provide more details!";
+            }
+            
+            // Projects
+            if (message.includes('project') || message.includes('portfolio') || message.includes('work')) {
+                return "Our students work on real-world projects! 🏗️\n\n" +
+                       "Recent projects include:\n" +
+                       "• E-commerce platforms\n" +
+                       "• Mobile apps\n" +
+                       "• Data visualization tools\n" +
+                       "• UI/UX designs\n\n" +
+                       "Check out our Projects page for more examples! 🌟";
+            }
+            
+            // Contact Information
+            if (message.includes('contact') || message.includes('email') || message.includes('phone') || message.includes('reach')) {
+                return "You can reach us through multiple channels! 📬\n\n" +
+                       "• Email: info@kalvium.com\n" +
+                       "• Fill out our contact form on the website\n" +
+                       "• Follow us on social media:\n" +
+                       "  - Instagram: @kalvium_official\n" +
+                       "  - LinkedIn: Kalvium\n" +
+                       "  - YouTube: @Kalvium\n\n" +
+                       "How would you prefer to connect? 🤝";
+            }
+            
+            // Mentors
+            if (message.includes('mentor') || message.includes('teacher') || message.includes('instructor')) {
+                return "Our mentors are industry experts with years of experience! 👨‍🏫👩‍🏫\n\n" +
+                       "They come from top tech companies and are passionate about teaching. Visit our Mentors page to learn more about:\n" +
+                       "• Their expertise\n" +
+                       "• Industry experience\n" +
+                       "• Teaching approach\n\n" +
+                       "Would you like to connect with any specific mentor? 🎓";
+            }
+            
+            // Admission Process
+            if (message.includes('admission') || message.includes('apply') || message.includes('join') || message.includes('enroll')) {
+                return "Excited to have you join us! 🎉 Here's our admission process:\n\n" +
+                       "1. Fill out the application form\n" +
+                       "2. Take our basic assessment\n" +
+                       "3. Schedule an interview\n" +
+                       "4. Receive your offer\n\n" +
+                       "Would you like me to guide you through the application process? ✨";
+            }
+            
+            // Career Support
+            if (message.includes('career') || message.includes('job') || message.includes('placement') || message.includes('opportunity')) {
+                return "We provide comprehensive career support! 💼\n\n" +
+                       "• Industry partnerships\n" +
+                       "• Interview preparation\n" +
+                       "• Resume building\n" +
+                       "• Portfolio development\n" +
+                       "• Networking opportunities\n\n" +
+                       "Our students have been placed in leading tech companies! 🚀";
+            }
+            
+            // Fees and Duration
+            if (message.includes('fee') || message.includes('cost') || message.includes('price') || message.includes('duration') || message.includes('time')) {
+                return "Our programs are designed to be flexible and affordable! 💰\n\n" +
+                       "• Course duration: 3-6 months\n" +
+                       "• Flexible payment options available\n" +
+                       "• Scholarships for deserving candidates\n\n" +
+                       "Would you like to discuss specific program details? 📅";
+            }
+            
+            // Technologies
+            if (message.includes('technology') || message.includes('tech') || message.includes('stack') || message.includes('language')) {
+                return "We teach the most in-demand technologies! 💻\n\n" +
+                       "Frontend:\n" +
+                       "• HTML, CSS, JavaScript\n" +
+                       "• React, Angular, Vue\n\n" +
+                       "Backend:\n" +
+                       "• Node.js, Python, Java\n" +
+                       "• MongoDB, SQL\n\n" +
+                       "Which technology interests you? 🔧";
+            }
+            
+            // Thank you messages
+            if (message.includes('thank') || message.includes('thanks') || message.includes('thx')) {
+                return "You're welcome! 😊 Feel free to ask any other questions. I'm here to help! ✨";
+            }
+            
+            // Goodbye messages
+            if (message.includes('bye') || message.includes('goodbye') || message.includes('see you')) {
+                return "Goodbye! Thanks for chatting. Hope to see you at Squad 80 soon! 👋 Feel free to return if you have more questions! 🌟";
+            }
+            
+            // Default response for unrecognized queries
+            return "I understand you're interested in learning more! 🤔\n\n" +
+                   "I can help you with:\n" +
+                   "• Course information\n" +
+                   "• Admission process\n" +
+                   "• Career opportunities\n" +
+                   "• Contact details\n\n" +
+                   "What would you like to know more about? 💡";
+        }
     </script>
 </body>
 </html>
